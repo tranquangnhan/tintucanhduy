@@ -10,12 +10,15 @@ class Home{
         $this->model = new model_home();
         $this->modelUser = new Model_user();
         $this->lib = new lib();
-       
+        $this->getCate = $this->model->getCate();
+        $this->getTitleAll = $this->model->getTitleAll();
+
         if(isset($_GET['q'])){
             $this->cat();
          }
         $act = "home";
-        if(isset($_GET["act"])==true) $act=$_GET["act"];
+
+     if(isset($_GET["act"])==true) $act=$_GET["act"];
         switch ($act) {    
 	      case "home": $this->home(); break;
          case "detail": $this->detail(); break;
@@ -39,6 +42,8 @@ class Home{
 
      function home()
      {
+      $getTitleNew = $this->model->getTitleNew();
+      $getNewbyCate = $this->model->getNewbyCate($this->getCate[0]['id']);
       //   $producer = $this->model->getAllProducer();
       //   $getHotPro =  $this->model->getHotPro();
       //   $getAllPro = $this->model->getAllPro();
@@ -52,19 +57,9 @@ class Home{
      }
 
      function detail()
-     {
-        $producer = $this->model->getAllProducer();
-   
-        $slug = $_GET['slug'];
-      
-        $sp = $this->model->getOnePro($slug);   
-        
-        $spSame = $this->model->getSamePro($slug);   
-
-        $property = $this->model->getProperty($slug);   
-
-        $comments = $this->model->getAllComment($slug);
-      
+     { 
+        $slug = $_GET['slug']; 
+        $sp = $this->model->getOneNew($slug);   
         $viewFile = "views/detail.php";     
         require_once "views/layout.php";  
      }

@@ -1,74 +1,4 @@
- <!-- Posts Filter Bar Start -->
- <div class="posts--filter-bar style--1 hidden-xs">
-            <div class="container">
-                <ul class="nav">
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-star-o"></i>
-                            <span>Featured News</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-heart-o"></i>
-                            <span>Most Popular</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-fire"></i>
-                            <span>Hot News</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-flash"></i>
-                            <span>Trending News</span>
-                        </a>
-                    </li>
-                    <li>
-                        <a href="#">
-                            <i class="fa fa-eye"></i>
-                            <span>Most Watched</span>
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-        <!-- Posts Filter Bar End -->
-
-        <!-- News Ticker Start -->
-        <div class="news--ticker">
-            <div class="container">
-                <div class="title">
-                    <h2>News Updates</h2>
-                    <span>(Update 12 minutes ago)</span>
-                </div>
-
-                <div class="news-updates--list" data-marquee="true">
-                    <ul class="nav">
-                        <li>
-                            <h3 class="h3"><a href="#">Contrary to popular belief Lorem Ipsum is not simply random text.</a></h3>
-                        </li>
-                        <li>
-                            <h3 class="h3"><a href="#">Education to popular belief Lorem Ipsum is not simply</a></h3>
-                        </li>
-                        <li>
-                            <h3 class="h3"><a href="#">Lorem ipsum dolor sit amet consectetur adipisicing elit.</a></h3>
-                        </li>
-                        <li>
-                            <h3 class="h3"><a href="#">Corporis repellendus perspiciatis reprehenderit.</a></h3>
-                        </li>
-                        <li>
-                            <h3 class="h3"><a href="#">Deleniti consequatur laudantium sit aspernatur?</a></h3>
-                        </li>
-                    </ul>
-                </div>
-            </div>
-        </div>
-        <!-- News Ticker End -->
-
-        <!-- Main Content Section Start -->
+      <!-- Main Content Section Start -->
         <div class="main-content--section pbottom--30">
             <div class="container">
                 <!-- Main Content Start -->
@@ -77,29 +7,24 @@
                     <div class="post--items post--items-1 pd--30-0">
                         <div class="row gutter--15">
                             <div class="col-md-6">
+                            
                                 <!-- Post Item Start -->
                                 <div class="post--item post--layout-1 post--title-larger">
                                     <div class="post--img">
                                         <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/banner-01.jpg" alt=""></a>
                                         <a href="#" class="cat">Politics</a>
-                                        <a href="#" class="icon"><i class="fa fa-flash"></i></a>
-
-                                        <div class="post--map">
-                                            <p class="btn-link"><i class="fa fa-map-o"></i>Location in Google Map</p>
-
-                                            <div class="map--wrapper">
-                                                <div data-map-latitude="23.790546" data-map-longitude="90.375583" data-map-zoom="6" data-map-marker="[[23.790546, 90.375583]]"></div>
-                                            </div>
-                                        </div>
+                                      
 
                                         <div class="post--info">
                                             <ul class="nav meta">
-                                                <li><a href="#">Norma R. Hogan</a></li>
-                                                <li><a href="#">20 April 2017</a></li>
+                                                <li><a href="#"><?php 
+                                                        $date=date_create($getTitleNew[0]['date']);
+                                                        echo date_format($date,"d/m/Y");
+                                                        ?></a></li>
                                             </ul>
 
                                             <div class="title">
-                                                <h2 class="h4"><a href="news-single-v1.html" class="btn-link">Siriyan civil war getting righteous indignation and dislike men who are so beguiled and demoralized by the sure.</a></h2>
+                                                <h2 class="h4"><a href="news-single-v1.html" class="btn-link"><?=$getTitleNew[0]['title']?></a></h2>
                                             </div>
                                         </div>
                                     </div>
@@ -115,16 +40,16 @@
                                             <div class="post--img">
                                                 <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/banner-02.jpg" alt=""></a>
                                                 <a href="#" class="cat">Travel</a>
-                                                <a href="#" class="icon"><i class="fa fa-flash"></i></a>
-
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Corey I. Dean</a></li>
-                                                        <li><a href="#">20 April 2017</a></li>
+                                                        <li><a href="#"><?php 
+                                                        $date=date_create($getTitleNew[1]['date']);
+                                                        echo date_format($date,"d/m/Y");
+                                                        ?></a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h2 class="h4"><a href="news-single-v1.html" class="btn-link">Lorem Ipsum is simply dummy text of the printing</a></h2>
+                                                        <h2 class="h4"><a href="news-single-v1.html" class="btn-link"><?=$getTitleNew[1]['title']?></a></h2>
                                                     </div>
                                                 </div>
                                             </div>
@@ -137,25 +62,17 @@
                                         <div class="post--item post--layout-1 post--title-large">
                                             <div class="post--img">
                                                 <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/banner-03.jpg" alt=""></a>
-                                                <a href="#" class="cat">Education</a>
-                                                <a href="#" class="icon"><i class="fa fa-flash"></i></a>
-
-                                                <div class="post--map">
-                                                    <p class="btn-link"><i class="fa fa-map-o"></i>Location in Google Map</p>
-
-                                                    <div class="map--wrapper">
-                                                        <div data-map-latitude="23.790546" data-map-longitude="90.375583" data-map-zoom="6" data-map-marker="[[23.790546, 90.375583]]"></div>
-                                                    </div>
-                                                </div>
-
+                                                <a href="#" class="cat">Education</a>                                
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Leraje</a></li>
-                                                        <li><a href="#">20 April 2017</a></li>
+                                                        <li><a href="#"><?php 
+                                                        $date=date_create($getTitleNew[2]['date']);
+                                                        echo date_format($date,"d/m/Y");
+                                                        ?></a></li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h2 class="h4"><a href="news-single-v1.html" class="btn-link">Lorem Ipsum is simply dummy text of the printing</a></h2>
+                                                        <h2 class="h4"><a href="news-single-v1.html" class="btn-link"><?=$getTitleNew[2]['title']?></a></h2>
                                                     </div>
                                                 </div>
                                             </div>
@@ -169,16 +86,17 @@
                                             <div class="post--img">
                                                 <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/banner-04.jpg" alt=""></a>
                                                 <a href="#" class="cat">Politics</a>
-                                                <a href="#" class="icon"><i class="fa fa-fire"></i></a>
-
                                                 <div class="post--info">
                                                     <ul class="nav meta">
-                                                        <li><a href="#">Balam</a></li>
-                                                        <li><a href="#">20 April 2017</a></li>
+                                                        <li><a href="#"><?php 
+                                                        $date=date_create($getTitleNew[3]['date']);
+                                                        echo date_format($date,"d/m/Y");
+                                                        ?></a>
+                                                        </li>
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h2 class="h4"><a href="news-single-v1.html" class="btn-link">On the other hand, we denounce with righteous indignation and dislike men who are so beguiled and demoralized by the sure.</a></h2>
+                                                        <h2 class="h4"><a href="news-single-v1.html" class="btn-link"><?=$getTitleNew[3]['title']?></a></h2>
                                                     </div>
                                                 </div>
                                             </div>
@@ -202,7 +120,7 @@
                                 <div class="col-md-6 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4">Worlds News</h2>
+                                        <h2 class="h4"><?=$this->getCate[0]['tendm']?></h2>
 
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_world_news_posts">
@@ -349,7 +267,7 @@
                                 <div class="col-md-6 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4">Technology</h2>
+                                        <h2 class="h4"><?=$this->getCate[1]['tendm']?></h2>
 
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_technology_posts">
@@ -498,7 +416,7 @@
                                 <div class="col-md-12 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4">Finance</h2>
+                                        <h2 class="h4"><?=$this->getCate[2]['tendm']?></h2>
 
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_finance_posts">
@@ -655,7 +573,7 @@
                                 <div class="col-md-6 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4">Politics</h2>
+                                        <h2 class="h4"><?=$this->getCate[3]['tendm']?></h2>
 
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_politics_posts">
@@ -802,7 +720,7 @@
                                 <div class="col-md-6 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4">Sports</h2>
+                                        <h2 class="h4"><?=$this->getCate[4]['tendm']?></h2>
 
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_sports_posts">
@@ -1345,7 +1263,7 @@
                                 <div class="col-md-6 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4">Health &amp; fitness</h2>
+                                        <h2 class="h4"><?=$this->getCate[5]['tendm']?></h2>
 
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_health_fitness_posts">
@@ -1482,7 +1400,7 @@
                                 <div class="col-md-6 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4">Lifestyle</h2>
+                                        <h2 class="h4"><?=$this->getCate[6]['tendm']?></h2>
 
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_lifestyle_posts">
@@ -1629,7 +1547,7 @@
                                 <div class="col-md-12 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4">Foods &amp; Recipes</h2>
+                                        <h2 class="h4"><?=$this->getCate[7]['tendm']?></h2>
 
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_food_resturent_posts">
