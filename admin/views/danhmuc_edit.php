@@ -56,8 +56,8 @@
                                             }
                                         ?>
                                         <div class="form-group text-right mb-0 ">
+                                            <a href="?ctrl=danhmuc&act=index" clas="btn btn-secondary waves-effect waves-light">Huỷ</a>
                                             <input type="submit" name="them" class="btn btn-primary waves-effect waves-light mr-1" value="Sửa">
-                                            <a href="?ctrl=nhasanxuat&act=index" clas="btn btn-secondary waves-effect waves-light">Huỷ</a>
                                         </div>
 
                                     </form>

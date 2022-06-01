@@ -1,5 +1,5 @@
 <?php
-class Model_danhMuc extends Model_db{
+class Model_DanhMuc extends Model_db{
     function listRecords() 
     {
         $sql = "SELECT * FROM danhmuc";

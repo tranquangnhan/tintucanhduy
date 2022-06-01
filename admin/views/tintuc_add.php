@@ -39,95 +39,49 @@
                                             <div class="col-lg-6">
                                                 <div class="form-group">
                                                     <label for="">Tiêu đề</label>
-                                                    <input type="text" name="name"  parsley-trigger="change" required
+                                                    <input type="text" name="title"  parsley-trigger="change" required
                                                         placeholder="Nhập tiêu đề tin tức" class="form-control" id="userName">
                                                 </div>
                                             </div>
+                                     
+                                          
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label for="">Giá</label>
-                                                    <input  type="number" name="price" parsley-trigger="change" required
-                                                        placeholder="Nhập giá" class="form-control" id="emailAddress">
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label for="">Giảm Giá</label>
-                                                    <input  type="number" name="promo" parsley-trigger="change" required
-                                                        placeholder="Nhập giảm giá" class="form-control" id="emailAddress">
-                                                </div>
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label for="">Thời Điểm Nhập</label>
-                                                    <input type="date" name="data" class="form-control" >
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label for="">Số lần xem</label>
-                                                    <input type="number" name="views" class="form-control" >
-                                                </div>  
-                                            </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label for="">Số lần Mua</label>
-                                                    <input type="number" name="buy" class="form-control" >
-                                                </div> 
-                                            </div>
-                                        </div>
-                                        <div class="row">
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label for="">Nhà sản xuất</label>
-                                                    <select class="form-control" name="idproducer">
+                                                    <label for="">Danh Mục</label>
+                                                    <div class="form-group">
+                                                      <select class="form-control" name="iddm" id="">
                                                         <?php 
-                                                            foreach ($producer as $row) {
-                                                            echo '<option value='.$row['idNSX'].'>'.$row['TenNSX'].'</option>';
+                                                            foreach ($listDanhMuc as $item) {
+                                                                echo " <option>".$item['tendm']."</option>";
                                                             }
                                                         ?>
-                                                    </select>
+                                                       
+                                                    
+                                                      </select>
+                                                    </div>
+
+
                                                 </div>
                                             </div>
-                                            <div class="col-lg-6">
-                                                <div class="form-group">
-                                                    <label for="">Số lượng tồn kho</label>
-                                                    <input type="number" class="form-control" name="inventory">
-                                                </div>           
-                                            </div>
+                                          
                                         </div>
                                         <div class="row">
-                                            <div class="col-lg-3">
-                                                <div class="form-group">
-                                                    <div class="checkbox">
-                                                        <input id="remember-1" type="checkbox" name="showhide" value="1" data-parsley-multiple="remember-1">
-                                                        <label for="remember-1">Ẩn Hiện ? </label>
-                                                    </div>
-                                                </div>            
-                                            </div>   
-                                            <div class="col-lg-3">
-                                                <div class="form-group">
-                                                    <div class="checkbox">
-                                                        <input id="remember-2" type="checkbox" name="hot" value="1" data-parsley-multiple="remember-1">
-                                                        <label for="remember-2">Hot ? </label>
-                                                    </div>
-                                                </div>           
-                                            </div>              
+                                            <div class="col-lg-12">
+                                            <label for="">Mô Tả</label>
+                                            <input type="text" class="form-control" value="<?=$oneRecode['description']?>" name="description" placeholder="Nhập mô tả ngắn">
+                                          
+                                            </div>
                                         </div>
-                                      
-                                        
-                                      
-                                        <textarea id="editor1" style="height: 300px;width:100%" name="detail" >
+                                     
+                                        <br>
+                                        <label for="">Nội Dung</label>
+                                        <textarea id="editor1" style="height: 300px;width:100%" name="content" >
                                            
                                         </textarea>
                                       
                                         <div class="form-group text-right mb-0 mt-5">
+                                            <a href="?ctrl=tintuc&act=index" clas="btn btn-secondary waves-effect waves-light">Huỷ</a>
                                             <input type="submit" name="them" class="btn btn-primary waves-effect waves-light mr-1" value="Thêm">
-                                            <a href="?ctrl=dienthoai&act=index" clas="btn btn-secondary waves-effect waves-light">Huỷ</a>
                                         </div>
 
                                     </form>
