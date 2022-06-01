@@ -8,7 +8,7 @@ class Model_DanhMuc extends Model_db{
     function addNewDanhMuc($name,$slug)
     {
         $sql = "INSERT INTO danhmuc(tendm,slug) VALUE(?,?)";
-        return $this->SqlExecDebug($sql,$name,$slug);
+        return $this->exec1($sql,$name,$slug);
     }
     function deleteDanhMuc($id)
     {   
@@ -16,7 +16,7 @@ class Model_DanhMuc extends Model_db{
         return $this->exec1($sql,$id);
     }
     function editDanhMuc($name,$slug,$id){
-        $sql = "UPDATE danhmuc SET tendm= ? WHERE id=?";
+        $sql = "UPDATE danhmuc SET tendm= ?,slug= ? WHERE id=?";
         return $this->exec1($sql,$name,$slug,$id);
     }
     function showOneProducer($id)

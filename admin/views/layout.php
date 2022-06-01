@@ -15,11 +15,19 @@
         <!-- Icons Css -->
         <link href="views/assets/css/icons.min.css" rel="stylesheet" type="text/css" />
         <!-- App Css-->
+        <link href="views/assets/libs/bootstrap-tagsinput/bootstrap-tagsinput.css" rel="stylesheet" />
+        <link href="views/assets/libs/switchery/switchery.min.css" rel="stylesheet" type="text/css" />
+
+        <link href="views/assets/libs/multiselect/multi-select.css"  rel="stylesheet" type="text/css" />
+        <link href="views/assets/libs/select2/select2.min.css" rel="stylesheet" type="text/css" />
+
         <link href="views/assets/css/app.css" id="app-stylesheet" rel="stylesheet" type="text/css" />
         <link href="https://cdn.quilljs.com/1.3.6/quill.snow.css" rel="stylesheet">
         <link href="views/assets/css/SweetAlert2.css" id="app-stylesheet" rel="stylesheet" type="text/css" />
         <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
         <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+          <!-- App Css-->
+          <link href="views/assets/css/app.min.css" id="app-stylesheet" rel="stylesheet" type="text/css" />
     </head>
 
     <body>
@@ -261,12 +269,12 @@
                             <li>
                                 <a href="javascript: void(0);">
                                     <i class="mdi mdi-page-layout-sidebar-left"></i>
-                                    <span>Đơn Hàng</span>
+                                    <span>Tag</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="?ctrl=donhang&act=addnew">Thêm Mới</a></li>
-                                    <li><a href="?ctrl=donhang&act=index">Danh Sách</a></li>
+                                    <li><a href="?ctrl=tag&act=addnew">Thêm Mới</a></li>
+                                    <li><a href="?ctrl=tag&act=index">Danh Sách</a></li>
                                 </ul>
                             </li>
 
@@ -408,6 +416,8 @@
 
     <!-- init js -->
     <script src="views/assets/js/pages/form-editor.init.js"></script>
+    <script src="views/assets/js/pages/form-advanced.init.js"></script>
+
     <!--end text editor -->
     <!-- sweet alert -->
     <script src="views/assets/js/SweetAlert2.js"></script>
@@ -417,6 +427,8 @@
     <script src="views/assets/js/ckfinder.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/jquery-validation@1.19.2/dist/jquery.validate.min.js"> </script>
     <script src="views/assets/js/validate.js"></script>
+    <script src="views/assets/libs/multiselect/jquery.multi-select.js"></script>
+    <script src="views/assets/libs/select2/select2.min.js"></script>
 </body>
 
 </html>

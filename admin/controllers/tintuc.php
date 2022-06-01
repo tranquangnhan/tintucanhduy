@@ -1,6 +1,7 @@
 <?php 
 require_once "models/tintuc.php"; 
 require_once "models/danhmuc.php"; 
+require_once "models/tag.php"; 
 
 require_once "../lib/myfunctions.php"; 
 class TinTuc{
@@ -8,6 +9,7 @@ class TinTuc{
     {
         $this->model = new Model_TinTuc();
         $this->modelDanhMuc = new Model_DanhMuc();
+        $this->tag = new Model_Tag();
         $this->lib = new lib();
         $act = "index";
 
@@ -52,10 +54,13 @@ class TinTuc{
         require_once "views/layout.php";
     }
     function addNew()
-    {  
+    {   
+        $listTag = $this->tag->listRecords();
         $listDanhMuc =  $this->modelDanhMuc->listRecords();
         if(isset($_GET['id'])&&($_GET['act']='tintuc')){
             $oneRecode = $this->model->showOneNew($_GET['id']);
+            $getTagById = $this->model->getTagById($_GET['id']);
+        
             $page_file = "views/tintuc_edit.php";
         }else{
             $page_file = "views/tintuc_add.php";
@@ -72,6 +77,8 @@ class TinTuc{
 
             $date = date("Y/m/d");
             $iddm = $_POST['iddm'];
+            $tags = $_POST['tags'];
+          
            
 
             $description = $_POST['description'];
@@ -98,10 +105,11 @@ class TinTuc{
                 {
                     $id = $_GET['id'];
                     settype($id,"int");
-                    $this->edit($title,$slug,$description,$imgs,$content,$iddm,$id);
+                   
+                    $this->edit($title,$slug,$description,$imgs,$content,$iddm,$tags,$id);
                 }else
                 {
-                    $this->store($title,$slug,$description,$imgs,$content,$date,$iddm);
+                    $this->store($title,$slug,$description,$imgs,$content,$date,$iddm,$tags);
                 }    
             }
 
@@ -112,10 +120,16 @@ class TinTuc{
     }//thêm mới dữ liệu vào db
 
 
-    function store($title,$slug,$description,$imgs,$content,$date,$iddm){   
+    function store($title,$slug,$description,$imgs,$content,$date,$iddm,$tags){   
         $idLastTinTuc = $this->model->addNewTinTuc($title,$slug,$description,$imgs,$content,$date,$iddm);
         if($idLastTinTuc != null)
-        {
+        {   
+        
+            foreach ($tags as $item) {
+                $this->model->addTagToNew( $idLastTinTuc,$item);
+            }
+            
+           
             header('location: ?ctrl=tintuc&act=index');
         }else
         {
@@ -125,11 +139,18 @@ class TinTuc{
         require_once "views/layout.php";
     }
 
-    function edit($title,$slug,$description,$imgs,$content,$iddm,$id)
+    function edit($title,$slug,$description,$imgs,$content,$iddm,$tags,$id)
     {
      
         if($this->model->editTinTuc($title,$slug,$description,$imgs,$content,$iddm,$id))
         {
+            
+            $this->model->delTagById($id);
+
+            foreach ($tags as $item) {
+                $this->model->addTagToNew($id,$item);
+            }
+            
             echo "<script>alert('Sửa thành công')</script>";
             header("location: ?ctrl=tintuc&act=index");
         }else
