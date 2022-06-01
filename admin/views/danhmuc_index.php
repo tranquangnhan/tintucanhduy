@@ -12,6 +12,9 @@
                                     <p class="text-muted font-14 mb-3">
                                     Hiện danh sách những danh mục
                                     </p>
+                                    <a name="" id="" class="btn btn-primary" href="?ctrl=danhmuc&act=addnew" role="button">Thêm Danh Mục</a>
+                                    <br>
+                                    <br>
 
                                     <table id="datatable-buttons" class="table table-striped table-bordered dt-responsive nowrap">
                                         <thead>

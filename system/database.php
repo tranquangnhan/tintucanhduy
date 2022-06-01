@@ -78,7 +78,7 @@ class Model_db{
             echo '---------------------------------------------------------------------<br>'.PHP_EOL;
     
             $stmt->execute($sqlValue);// thực thi
-    
+            exit();
            
             return true;
         } catch (PDOException $e) {

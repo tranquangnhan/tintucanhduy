@@ -1,11 +1,13 @@
 <?php 
 require_once "models/tintuc.php"; 
+require_once "models/danhmuc.php"; 
 
 require_once "../lib/myfunctions.php"; 
 class TinTuc{
     function __construct()
     {
         $this->model = new Model_TinTuc();
+        $this->modelDanhMuc = new Model_DanhMuc();
         $this->lib = new lib();
         $act = "index";
 
@@ -38,85 +40,53 @@ class TinTuc{
         if (isset($_GET['Page'])) $CurrentPage = $_GET['Page']; else $CurrentPage = 1;
      
         
-        $TotalProduct = $this->model->countAllPhone();
+        $TotalNews = $this->model->countAllNew();
 
-        if($TotalProduct == 0) $TotalProduct =1;
+        if($TotalNews == 0) $TotalNews =1;
   
-        $ProductList = $this->model-> GetProductList($CurrentPage);
+        $NewList = $this->model-> GetNewsList($CurrentPage);
 
-        $Pagination =  $this->model->Page($TotalProduct, $CurrentPage);
+        $Pagination =  $this->model->Page($TotalNews, $CurrentPage);
         $page_title ="Danh sách nhà sản xuất";
         $page_file = "views/tintuc_index.php";
         require_once "views/layout.php";
     }
     function addNew()
     {  
-        if(isset($_GET['id'])&&($_GET['act']='dienthoai')){
-            $oneRecode = $this->model->showOnePhone($_GET['id']);
-            $producer = $this->modelNSX->listRecords();
-            $page_title ="Sửa Điện Thoại";
+        $listDanhMuc =  $this->modelDanhMuc->listRecords();
+        if(isset($_GET['id'])&&($_GET['act']='tintuc')){
+            $oneRecode = $this->model->showOneNew($_GET['id']);
             $page_file = "views/tintuc_edit.php";
         }else{
-            // $producer = $this->modelNSX->listRecords();
-            $page_title ="Thêm Điện Thoại";
             $page_file = "views/tintuc_add.php";
         }
 
         if(isset($_POST['them'])&&$_POST['them'])
         {
 
-            $name =$this->lib->stripTags($_POST['name']);
-            $price = $_POST['price'];
-            $promo = $_POST['promo'];
+            $title =$this->lib->stripTags($_POST['title']);
+            $slug = $this->lib->slug($title);
+
             $img = $_FILES['img'];
             $imgs = $this->lib->checkUpLoadMany($img);
-            $date = $_POST['data'];
-            $views = $_POST['views'];
-            $buy = $_POST['buy'];
-            $idproducer = $_POST['idproducer'];
-            $inventory = $_POST['inventory'];
-            $showHide = $_POST['showhide'];
-            $hot = $_POST['hot'];
-            $detail = $_POST['detail'];
-            $slug = $this->lib->slug($name);
-            
 
-            settype($price,"float");
-            settype($promo,"int");
+            $date = date("Y/m/d");
+            $iddm = $_POST['iddm'];
+
+            $description = $_POST['description'];
+            $content = $_POST['content'];
+          
             settype($views,"int");
-            settype($buy,"int");
-            settype($idproducer,"int");
-            settype($inventory,"int");
-            settype($showHide,"int");
-            settype($hot,"int");
+            settype($iddm,"int");
+           
             
             $_SESSION['message'] = "";
-            if($name == ""){
-                $_SESSION['message'] = "Bạn chưa nhập tên";
+            if($title == ""){
+                $_SESSION['message'] = "Bạn chưa nhập tiêu đề";
             } 
-            elseif($price == "")
-            {
-                $_SESSION['message'] = "Bạn chưa nhập giá";
-            }
-            elseif($promo == "")
-            {
-                $_SESSION['message'] = "Bạn chưa nhập giảm giá";
-            }
             elseif($img == "")
             {
                 $_SESSION['message'] = "Bạn chưa chọn ảnh";
-            }
-            elseif($date == "")
-            {
-                $_SESSION['message'] = "Bạn chưa nhập ngày nhập hàng";
-            }
-            elseif($date == "")
-            {
-                $_SESSION['message'] = "Bạn chưa nhập ngày nhập hàng";
-            }
-            elseif($idproducer == "")
-            {
-                $_SESSION['message'] = "Bạn chưa chọn nhà sản xuất";
             }
             if($_SESSION['message']){
                 header("location: ?ctrl=thongbao");
@@ -127,11 +97,10 @@ class TinTuc{
                 {
                     $id = $_GET['id'];
                     settype($id,"int");
-                    $this->edit($name,$price,$promo,$imgs,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug,$id);
-                
+                    $this->edit($title,$slug,$description,$imgs,$content,$iddm,$id);
                 }else
                 {
-                    $this->store($name,$price,$promo,$imgs,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug);
+                    $this->store($title,$slug,$description,$imgs,$content,$date,$iddm);
                 }    
             }
 
@@ -142,12 +111,11 @@ class TinTuc{
     }//thêm mới dữ liệu vào db
 
 
-    function store($name,$price,$promo,$imgs,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug){   
-        $idLastPhone = $this->model->addNewPhone($name,$price,$promo,$imgs,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug);
-        if($idLastPhone != null)
+    function store($title,$slug,$description,$imgs,$content,$date,$iddm){   
+        $idLastTinTuc = $this->model->addNewTinTuc($title,$slug,$description,$imgs,$content,$date,$iddm);
+        if($idLastTinTuc != null)
         {
-            echo "<script>alert('Thêm thành công')</script>";
-            header("location: ?ctrl=thuoctinh&act=addnew&id=$idLastPhone");
+            header('location: ?ctrl=tintuc&act=index');
         }else
         {
             echo "<script>alert('Thêm thất bại')</script>";
@@ -156,12 +124,13 @@ class TinTuc{
         require_once "views/layout.php";
     }
 
-    function edit($name,$price,$promo,$imgs,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug,$id)
+    function edit($title,$slug,$description,$imgs,$content,$iddm,$id)
     {
-        if($this->model->editPhone($name,$price,$promo,$imgs,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug,$id))
+     
+        if($this->model->editTinTuc($title,$slug,$description,$imgs,$content,$iddm,$id))
         {
             echo "<script>alert('Sửa thành công')</script>";
-            header("location: ?ctrl=dienthoai&act=index");
+            header("location: ?ctrl=tintuc&act=index");
         }else
         {
             echo "<script>alert('Sửa thất bại')</script>";
@@ -171,13 +140,13 @@ class TinTuc{
 
     function delete()
     {
-        if(isset($_GET['id'])&&($_GET['ctrl']=='dienthoai')){
+        if(isset($_GET['id'])&&($_GET['ctrl']=='tintuc')){
             $id = $_GET['id'];
             settype($id,"int");
             
-            if($this->model->deletePhone($id)){
+            if($this->model->deleteNew($id)){
                 echo "<script>alert('Xoá thành công')</script>";
-                header("location: ?ctrl=dienthoai&act=index");
+                header("location: ?ctrl=tintuc&act=index");
             }else{
                 echo "<script>alert('Xoá thất bại')</script>";
             }

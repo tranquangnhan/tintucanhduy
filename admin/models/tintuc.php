@@ -3,42 +3,42 @@
 class Model_TinTuc extends Model_db{
     function listRecords() 
     {
-        $sql = "SELECT * FROM dienthoai";
+        $sql = "SELECT * FROM tintuc";
         return $this->result1(0,$sql);
     }
     
-    function addNewPhone($name,$price,$promo,$imgs,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug)
+    function addNewTinTuc($title,$slug,$description,$imgs,$content,$date,$iddm)
     {
-        $sql = "INSERT INTO dienthoai(TenDT,Gia,GiaKM,urlHinh,ThoiDiemNhap,MoTa,SoLanXem,SoLanMua,Hot,idNSX,AnHien,SoLuongTonKho,slug) VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?)";
-        return $this->getLastId($sql,$name,$price,$promo,$imgs,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug);
+        $sql = "INSERT INTO tintuc(title,slug,description,img,content,date,iddm) VALUE(?,?,?,?,?,?,?)";
+        return $this->getLastId($sql,$title,$slug,$description,$imgs,$content,$date,$iddm);
     }
 
-    function deletePhone($id)
+    function deleteNew($id)
     {   
-        $sql = "DELETE FROM dienthoai WHERE idDT = ?";
+        $sql = "DELETE FROM tintuc WHERE id = ?";
         return $this->exec1($sql,$id);
     }
 
-    function editPhone($name,$price,$promo,$imgs,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug,$id){
+    function editTinTuc($title,$slug,$description,$imgs,$content,$iddm,$id){
         if($imgs == "")
         {
-            $sql = "UPDATE dienthoai SET TenDT= ?,Gia=?,GiaKM=?,ThoiDiemNhap=?,MoTa=?,SoLanXem=?,SoLanMua=?,Hot=?,idNSX=?,AnHien=?,SoLuongTonKho=?,slug=? WHERE idDT=?";
-            return $this->exec1($sql,$name,$price,$promo,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug,$id);
+            $sql = "UPDATE tintuc SET title= ?,slug=?,description=?,content=?,iddm=? WHERE id=?";
+            return $this->exec1($sql,$title,$slug,$description,$content,$iddm,$id);
         }else
         {
-            $sql = "UPDATE dienthoai SET TenDT= ?,Gia=?,GiaKM=?,urlHinh=?,ThoiDiemNhap=?,MoTa=?,SoLanXem=?,SoLanMua=?,Hot=?,idNSX=?,AnHien=?,SoLuongTonKho=?,slug=? WHERE idDT=?";
-            return $this->exec1($sql,$name,$price,$promo,$imgs,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug,$id);
+            $sql = "UPDATE tintuc SET title= ?,slug=?,description=?,img=?,content=?,iddm=? WHERE id=?";
+            return $this->exec1($sql,$title,$slug,$description,$imgs,$content,$iddm,$id);
         }
     }
 
-    function showOnePhone($id)
+    function showOneNew($id)
     {
-        $sql = "SELECT * FROM dienthoai WHERE idDT=?";
+        $sql = "SELECT * FROM tintuc WHERE id=?";
         return $this->result1(1,$sql,$id);
     }
-    function countAllPhone()
+    function countAllNew()
     {
-        $sql = "SELECT count(*) AS sodong FROM dienthoai";
+        $sql = "SELECT count(*) AS sodong FROM tintuc";
         return $this->result1(1,$sql)['sodong'];
     }
 
@@ -136,11 +136,11 @@ class Model_TinTuc extends Model_db{
 
         return $PagedHTML.$NextButton.$LastButton;
     }
-    function GetProductList($CurrentPage){
-        $sql = "SELECT * FROM dienthoai WHERE idDT != 0";
+    function GetNewsList($CurrentPage){
+        $sql = "SELECT * FROM tintuc WHERE id != 0";
         if ($CurrentPage !== 0)
         {
-            $sql .= " GROUP BY idDT LIMIT ".($CurrentPage - 1) * PAGE_SIZE.", ".PAGE_SIZE;
+            $sql .= " GROUP BY id LIMIT ".($CurrentPage - 1) * PAGE_SIZE.", ".PAGE_SIZE;
         }
         return $this->result1(0,$sql);
     }
