@@ -25,7 +25,7 @@
                                         </div>
                                     </div>
 
-                                    <h4 class="header-title mt-0 mb-3">Điện Thoại</h4>
+                                    <h4 class="header-title mt-0 mb-3">Tin Tức</h4>
 
                                     <form data-parsley-validate id="formadd" novalidate method="post" enctype="multipart/form-data">
                                         <div class="form-group">
@@ -38,9 +38,9 @@
                                         <div class="row">
                                             <div class="col-lg-6">
                                                 <div class="form-group">
-                                                    <label for="">Tên Điện Thoại</label>
+                                                    <label for="">Tiêu đề</label>
                                                     <input type="text" name="name"  parsley-trigger="change" required
-                                                        placeholder="Nhập tên nhà sản xuất" class="form-control" id="userName">
+                                                        placeholder="Nhập tiêu đề tin tức" class="form-control" id="userName">
                                                 </div>
                                             </div>
                                             <div class="col-lg-6">

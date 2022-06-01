@@ -2,7 +2,7 @@
 <html lang="en">
     <head>
         <meta charset="utf-8" />
-        <title>admin- trang web bán hàng xịn xò</title>
+        <title>admin- quản trị tin tức</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0">
         <meta content="A fully featured admin theme which can be used to build CRM, CMS, etc." name="description" />
         <meta content="Coderthemes" name="author" />
@@ -238,24 +238,24 @@
                             <li>
                                 <a href="javascript: void(0);">
                                     <i class="mdi mdi-page-layout-sidebar-left"></i>
-                                    <span> Sản Phẩm </span>
+                                    <span> Tin Tức </span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="?ctrl=dienthoai&act=addnew">Thêm Mới</a></li>
-                                    <li><a href="?ctrl=dienthoai&act=index">Danh Sách</a></li>
+                                    <li><a href="?ctrl=tintuc&act=addnew">Thêm Mới</a></li>
+                                    <li><a href="?ctrl=tintuc&act=index">Danh Sách</a></li>
                                 </ul>
                             </li>
                             
                             <li>
                                 <a href="javascript: void(0);">
                                     <i class="mdi mdi-page-layout-sidebar-left"></i>
-                                    <span> Nhà Sản Xuất</span>
+                                    <span> Danh Mục</span>
                                     <span class="menu-arrow"></span>
                                 </a>
                                 <ul class="nav-second-level" aria-expanded="false">
-                                    <li><a href="?ctrl=nhasanxuat&act=addnew">Thêm Mới</a></li>
-                                    <li><a href="?ctrl=nhasanxuat&act=index">Danh Sách</a></li>
+                                    <li><a href="?ctrl=danhmuc&act=addnew">Thêm Mới</a></li>
+                                    <li><a href="?ctrl=danhmuc&act=index">Danh Sách</a></li>
                                 </ul>
                             </li>
                             <li>

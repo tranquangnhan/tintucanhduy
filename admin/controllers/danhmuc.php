@@ -1,7 +1,7 @@
 <?php 
-require_once "models/nhasanxuat.php"; 
+require_once "models/danhmuc.php"; 
 
-class NhaSanXuat{
+class DanhMuc{
     function __construct()
     {
         $this->model = new Model_danhMuc();
@@ -32,31 +32,29 @@ class NhaSanXuat{
     function index()
     {   $list = $this->model->listRecords();
         $page_title ="Danh sách nhà sản xuất";
-        $page_file = "views/nhasanxuat_index.php";
+        $page_file = "views/danhmuc_index.php";
         require_once "views/layout.php";
     }
     function addNew()
     {  
-        if(isset($_GET['id'])&&($_GET['act']='nhasanxuat')){
+        if(isset($_GET['id'])&&($_GET['act']='danhmuc')){
             $oneRecode = $this->model->showOneProducer($_GET['id']);
             $page_title ="Sửa nhà sản xuất";
-            $page_file = "views/nhasanxuat_edit.php";
+            $page_file = "views/danhmuc_edit.php";
         }else{
             $page_title ="Thêm nhà sản xuất";
-            $page_file = "views/nhasanxuat_add.php";
+            $page_file = "views/danhmuc_add.php";
         }
 
         if(isset($_POST['them'])&&$_POST['them']){
             $name = $_POST['name'];
-            $order = $_POST['order'];
-            $showHide = ($_POST['showhide']) ? 1: 0;
             $slug = $this->lib->slug($name);
             if(isset($_GET['id'])){
                 $id = $_GET['id'];
                 settype($id,"int");
-                $this->edit($name,$order,$showHide,$slug,$id);
+                $this->edit($name,$slug,$id);
             }else{
-                $this->store($name,$order,$showHide,$slug);
+                $this->store($name,$slug);
             }
            
         }
@@ -65,13 +63,12 @@ class NhaSanXuat{
     }//thêm mới dữ liệu vào db
 
 
-    function store($name,$order,$showHide,$slug){   
+    function store($name,$slug){   
         $name = $this->lib->stripTags($name);
-        $showHide = settype($showHide,"integer");
-        if($this->model->addNewProducer($name,$order,$showHide,$slug))
+        if($this->model->addNewDanhMuc($name,$slug))
         {
             echo "<script>alert('Thêm thành công')</script>";
-            header("location: ?ctrl=nhasanxuat&act=index");
+            header("location: ?ctrl=danhmuc&act=index");
         }else
         {
             echo "<script>alert('Thêm thất bại')</script>";
@@ -80,15 +77,15 @@ class NhaSanXuat{
         require_once "views/layout.php";
     }
 
-    function edit($name,$order,$showHide,$slug,$id)
+    function edit($name,$slug,$id)
     {
         if(isset($_GET['id']))
         {
             
-            if($this->model->editProducer($name,$order,$showHide,$slug,$id))
+            if($this->model->editDanhMuc($name,$slug,$id))
             {
                 echo "<script>alert('Sửa thành công')</script>";
-                header("location: ?ctrl=nhasanxuat&act=index");
+                header("location: ?ctrl=danhmuc&act=index");
             }else
             {
                 echo "<script>alert('Sửa thất bại')</script>";
@@ -99,13 +96,13 @@ class NhaSanXuat{
 
     function delete()
     {
-        if(isset($_GET['id'])&&($_GET['ctrl']=='nhasanxuat')){
+        if(isset($_GET['id'])&&($_GET['ctrl']=='danhmuc')){
             $id = $_GET['id'];
             settype($id,"int");
             
-            if($this->model->deleteProducer($id)){
+            if($this->model->deleteDanhMuc($id)){
                 echo "<script>alert('Xoá thành công')</script>";
-                header("location: ?ctrl=nhasanxuat&act=index");
+                header("location: ?ctrl=danhmuc&act=index");
             }else{
                 echo "<script>alert('Xoá thất bại')</script>";
             }

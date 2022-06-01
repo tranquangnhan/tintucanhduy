@@ -1,30 +1,47 @@
-<?php 
-class Model_thuoctinh extends Model_db{
-    function addProperty($iddt,$screen,$operatingsystem,$rearcamera,$frontcamera,$cpu,$ram,$memory,$memorystick,$sim,$battery){
-        $sql = "INSERT INTO thuoctinhdt(idDT,ManHinh,HeDieuHanh,CameraSau,CameraTruoc,CPU,RAM,BoNhoTrong,TheNho,TheSim,DungLuongPin) VALUE(?,?,?,?,?,?,?,?,?,?,?)";
-        return $this->exec1($sql,$iddt,$screen,$operatingsystem,$rearcamera,$frontcamera,$cpu,$ram,$memory,$memorystick,$sim,$battery);
-    }
-    function editProperty($screen,$operatingsystem,$rearcamera,$frontcamera,$cpu,$ram,$memory,$memorystick,$sim,$battery,$idedit){
-        $sql ="UPDATE thuoctinhdt SET ManHinh=?, HeDieuHanh=?,CameraSau=?,CameraTruoc=?,CPU=?,RAM=?,BoNhoTrong=?,TheNho=?,TheSim=?,DungLuongPin=? WHERE idDT=?";
-        return $this->exec1($sql,$screen,$operatingsystem,$rearcamera,$frontcamera,$cpu,$ram,$memory,$memorystick,$sim,$battery,$idedit);
-    }
-    function showOneProperty($iddt){
-        $sql = "SELECT * FROM thuoctinhdt WHERE idDT = ?";
-        return $this->result1(1,$sql,$iddt);
-    }
-    function countAllProperty(){
-        $sql = "SELECT count(*) AS sodong FROM thuoctinhdt";
-        return $this->result1(1,$sql)['sodong'];
-    }
-    function GetProperty($CurrentPage){
-        $sql = "SELECT * FROM thuoctinhdt WHERE 1";
-        if ($CurrentPage !== 0)
-        {
-            $sql .= " GROUP BY idDT LIMIT ".($CurrentPage - 1) * PAGE_SIZE.", ".PAGE_SIZE;
-        }
+<?php
+
+class Model_TinTuc extends Model_db{
+    function listRecords() 
+    {
+        $sql = "SELECT * FROM dienthoai";
         return $this->result1(0,$sql);
     }
     
+    function addNewPhone($name,$price,$promo,$imgs,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug)
+    {
+        $sql = "INSERT INTO dienthoai(TenDT,Gia,GiaKM,urlHinh,ThoiDiemNhap,MoTa,SoLanXem,SoLanMua,Hot,idNSX,AnHien,SoLuongTonKho,slug) VALUE(?,?,?,?,?,?,?,?,?,?,?,?,?)";
+        return $this->getLastId($sql,$name,$price,$promo,$imgs,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug);
+    }
+
+    function deletePhone($id)
+    {   
+        $sql = "DELETE FROM dienthoai WHERE idDT = ?";
+        return $this->exec1($sql,$id);
+    }
+
+    function editPhone($name,$price,$promo,$imgs,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug,$id){
+        if($imgs == "")
+        {
+            $sql = "UPDATE dienthoai SET TenDT= ?,Gia=?,GiaKM=?,ThoiDiemNhap=?,MoTa=?,SoLanXem=?,SoLanMua=?,Hot=?,idNSX=?,AnHien=?,SoLuongTonKho=?,slug=? WHERE idDT=?";
+            return $this->exec1($sql,$name,$price,$promo,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug,$id);
+        }else
+        {
+            $sql = "UPDATE dienthoai SET TenDT= ?,Gia=?,GiaKM=?,urlHinh=?,ThoiDiemNhap=?,MoTa=?,SoLanXem=?,SoLanMua=?,Hot=?,idNSX=?,AnHien=?,SoLuongTonKho=?,slug=? WHERE idDT=?";
+            return $this->exec1($sql,$name,$price,$promo,$imgs,$date,$detail,$views,$buy,$hot,$idproducer,$showHide, $inventory,$slug,$id);
+        }
+    }
+
+    function showOnePhone($id)
+    {
+        $sql = "SELECT * FROM dienthoai WHERE idDT=?";
+        return $this->result1(1,$sql,$id);
+    }
+    function countAllPhone()
+    {
+        $sql = "SELECT count(*) AS sodong FROM dienthoai";
+        return $this->result1(1,$sql)['sodong'];
+    }
+
     public function Page (int $TotalProduct, int $CurrentPage)
     {
         $LimitPage = 5; // 5 sản phẩm 2 trang
@@ -119,5 +136,12 @@ class Model_thuoctinh extends Model_db{
 
         return $PagedHTML.$NextButton.$LastButton;
     }
+    function GetProductList($CurrentPage){
+        $sql = "SELECT * FROM dienthoai WHERE idDT != 0";
+        if ($CurrentPage !== 0)
+        {
+            $sql .= " GROUP BY idDT LIMIT ".($CurrentPage - 1) * PAGE_SIZE.", ".PAGE_SIZE;
+        }
+        return $this->result1(0,$sql);
+    }
 }
-?>

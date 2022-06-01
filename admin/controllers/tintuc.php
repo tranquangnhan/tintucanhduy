@@ -1,12 +1,11 @@
 <?php 
-require_once "models/dienthoai.php"; 
-require_once "models/nhasanxuat.php"; 
+require_once "models/tintuc.php"; 
+
 require_once "../lib/myfunctions.php"; 
-class DienThoai{
+class TinTuc{
     function __construct()
     {
-        $this->model = new Model_dienThoai();
-        $this->modelNSX = new Model_nhaSanXuat();
+        $this->model = new Model_TinTuc();
         $this->lib = new lib();
         $act = "index";
 
@@ -29,7 +28,6 @@ class DienThoai{
                 $this->delete();
                 break;   
             default:
-         
                 break;
         }
 
@@ -46,11 +44,9 @@ class DienThoai{
   
         $ProductList = $this->model-> GetProductList($CurrentPage);
 
-
         $Pagination =  $this->model->Page($TotalProduct, $CurrentPage);
-
         $page_title ="Danh sách nhà sản xuất";
-        $page_file = "views/dienthoai_index.php";
+        $page_file = "views/tintuc_index.php";
         require_once "views/layout.php";
     }
     function addNew()
@@ -59,11 +55,11 @@ class DienThoai{
             $oneRecode = $this->model->showOnePhone($_GET['id']);
             $producer = $this->modelNSX->listRecords();
             $page_title ="Sửa Điện Thoại";
-            $page_file = "views/dienthoai_edit.php";
+            $page_file = "views/tintuc_edit.php";
         }else{
-            $producer = $this->modelNSX->listRecords();
+            // $producer = $this->modelNSX->listRecords();
             $page_title ="Thêm Điện Thoại";
-            $page_file = "views/dienthoai_add.php";
+            $page_file = "views/tintuc_add.php";
         }
 
         if(isset($_POST['them'])&&$_POST['them'])

@@ -39,12 +39,12 @@ class Home{
 
      function home()
      {
-        $producer = $this->model->getAllProducer();
-        $getHotPro =  $this->model->getHotPro();
-        $getAllPro = $this->model->getAllPro();
-        $getAllNewPro = $this->model->getAllNewPro();
-        $getAllViewsPro = $this->model->getAllViewsPro();
-        $getAllProSelling = $this->model->getAllProSelling();
+      //   $producer = $this->model->getAllProducer();
+      //   $getHotPro =  $this->model->getHotPro();
+      //   $getAllPro = $this->model->getAllPro();
+      //   $getAllNewPro = $this->model->getAllNewPro();
+      //   $getAllViewsPro = $this->model->getAllViewsPro();
+      //   $getAllProSelling = $this->model->getAllProSelling();
 
         $page_title ="Danh sách nhà sản xuất";
         $viewFile = "views/home.php";
