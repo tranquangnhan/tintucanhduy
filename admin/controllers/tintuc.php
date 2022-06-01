@@ -72,6 +72,7 @@ class TinTuc{
 
             $date = date("Y/m/d");
             $iddm = $_POST['iddm'];
+           
 
             $description = $_POST['description'];
             $content = $_POST['content'];

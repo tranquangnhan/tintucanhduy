@@ -62,9 +62,9 @@
                                                         <?php 
                                                             foreach ($listDanhMuc as $item) {
                                                                 if($item === $oneRecode['iddm']){
-                                                                    echo " <option selected>".$item['tendm']."</option>";
+                                                                    echo " <option value=".$item['id']." selected>".$item['tendm']."</option>";
                                                                 }else{
-                                                                    echo " <option >".$item['tendm']."</option>";
+                                                                    echo " <option value=".$item['id']." >".$item['tendm']."</option>";
                                                                 }
                                                                
                                                             }

@@ -45,7 +45,7 @@
                                                         <td>'.$stt.'</td>
                                                         <td class="" >'.$row['title']." <br>". $anHien.'</td>
                                                         <td><img style="object-fit:cover;" class="img-admin" width="100" height="100" src="'.$img.'"></td>
-                                                        <td>'.substr($row['description'],0,10).' ..</td>
+                                                        <td>'.substr($row['description'],0,100).' ..</td>
                                                         <td><div  onclick="checkDelete('.$linkDel.')"  class="btn btn-danger" role="button"><i class="fa fa-trash"></i></div></td>
                                                         <td><a href=""><a name="" id="" class="btn btn-primary" href="'.$linkEdit.'" role="button"><span class="mdi mdi-pencil"></span></a></a></a></td>
                                                     </tr>';

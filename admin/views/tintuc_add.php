@@ -52,7 +52,7 @@
                                                       <select class="form-control" name="iddm" id="">
                                                         <?php 
                                                             foreach ($listDanhMuc as $item) {
-                                                                echo " <option>".$item['tendm']."</option>";
+                                                                echo " <option value=".$item['id'].">".$item['tendm']."</option>";
                                                             }
                                                         ?>
                                                        
