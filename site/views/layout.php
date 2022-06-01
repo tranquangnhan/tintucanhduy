@@ -148,6 +148,9 @@
                     <div id="headerNav" class="navbar-collapse collapse float--left">
                         <!-- Header Menu Links Start -->
                         <ul class="header--menu-links nav navbar-nav" data-trigger="hoverIntent">
+                            <li class="dropdown">
+                                <a href="#" class="dropdown-toggle" data-toggle="dropdown">Trang Chủ</a>
+                             </li>
                             <?php 
                              foreach($this->getCate as $item)
                              {

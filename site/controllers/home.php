@@ -12,6 +12,7 @@ class Home{
         $this->lib = new lib();
         $this->getCate = $this->model->getCate();
         $this->getTitleAll = $this->model->getTitleAll();
+        $this->getAllNew = $this->model->getAllNew();
 
         if(isset($_GET['q'])){
             $this->cat();
@@ -43,7 +44,16 @@ class Home{
      function home()
      {
       $getTitleNew = $this->model->getTitleNew();
-      $getNewbyCate = $this->model->getNewbyCate($this->getCate[0]['id']);
+      $getNewbyCate0 = $this->model->getNewbyCate($this->getCate[0]['id']);
+      $getNewbyCateLimit0 = $this->model->getNewbyCateLimit($this->getCate[0]['id'], 5);
+      $getNewbyCateLimit1 = $this->model->getNewbyCateLimit($this->getCate[1]['id'], 5);
+      $getNewbyCateLimit2 = $this->model->getNewbyCateLimit($this->getCate[2]['id'], 5);
+      $getNewbyCateLimit3 = $this->model->getNewbyCateLimit($this->getCate[3]['id'], 5);
+      $getNewbyCateLimit4 = $this->model->getNewbyCateLimit($this->getCate[4]['id'], 5);
+      $getNewbyCateLimit5 = $this->model->getNewbyCateLimit($this->getCate[5]['id'], 5);
+      $getNewbyCateLimit6 = $this->model->getNewbyCateLimit($this->getCate[6]['id'], 5);
+      $getNewbyCateLimit7 = $this->model->getNewbyCateLimit($this->getCate[7]['id'], 3);
+     
       //   $producer = $this->model->getAllProducer();
       //   $getHotPro =  $this->model->getHotPro();
       //   $getAllPro = $this->model->getAllPro();

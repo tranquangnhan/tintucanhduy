@@ -345,9 +345,17 @@ class Model_home extends Model_db{
         $sql = "SELECT * FROM tintuc ORDER BY id DESC LIMIT 4";
         return $this->result1(0,$sql);
     }
-
+    function getAllNew(){
+        $sql = "SELECT * FROM tintuc ORDER BY id DESC LIMIT 10";
+        return $this->result1(0,$sql);
+    }
     function getNewbyCate($iddm){
         $sql = "SELECT * FROM tintuc WHERE iddm=?";
+        return $this->result1(0,$sql,$iddm);
+    }
+
+    function getNewbyCateLimit($iddm, $limit){
+        $sql = "SELECT * FROM tintuc WHERE iddm=? LIMIT $limit";
         return $this->result1(0,$sql,$iddm);
     }
     
