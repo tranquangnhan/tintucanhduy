@@ -24,8 +24,8 @@ class Model_home extends Model_db{
         $sql = "SELECT * FROM dienthoai WHERE AnHien=1  ORDER BY SoLanMua DESC LIMIT 0, $sosp";
         return $this->result1(0,$sql);
      }
-    function getOnePro($slug){   
-        $sql = "SELECT * FROM dienthoai WHERE AnHien=1 AND slug=?";
+    function getOneNew($slug){   
+        $sql = "SELECT * FROM tintuc WHERE slug=?";
         return $this->result1(1,$sql,$slug);
     }
     function getProperty($slug){ 
@@ -333,4 +333,23 @@ class Model_home extends Model_db{
 //       $sql = "SELECT idDT FROM dienthoai WHERE slug=?";
 //       return $this->result1(1,$sql,$slug)['idDT'];
 //   }
+    function getCate(){ 
+        $sql = "SELECT * FROM danhmuc";
+        return $this->result1(0,$sql);
+    }
+    function getTitleAll(){ 
+        $sql = "SELECT title FROM tintuc";
+        return $this->result1(0,$sql);
+    }
+    function getTitleNew(){
+        $sql = "SELECT * FROM tintuc ORDER BY id DESC LIMIT 4";
+        return $this->result1(0,$sql);
+    }
+
+    function getNewbyCate($iddm){
+        $sql = "SELECT * FROM tintuc WHERE iddm=?";
+        return $this->result1(0,$sql,$iddm);
+    }
+    
 }
+
