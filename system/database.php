@@ -99,6 +99,14 @@ class Model_db{
             
             $stmt->execute($sqlValue);// thực thi
             if($fe===0)return $stmt->fetchAll();elseif($fe===1)return $stmt->fetch(PDO::FETCH_ASSOC);// nếu tham số đầu tiên ===0 trả về tất cả sản phẩm, === 1 trả về 1 sản phẩm
+            echo '</pre>';
+            if($fe===0){
+                print_r($stmt->fetchAll());
+            }elseif($fe===1){
+                print_r($stmt->fetch(PDO::FETCH_ASSOC));
+            }
+            echo '---------------------------------------------------------------------<br>'.PHP_EOL;
+            exit();
             
         } catch (PDOException $e) {
             echo "Lỗi: " . $e->getMessage();

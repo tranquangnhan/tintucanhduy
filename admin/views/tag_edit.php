@@ -25,17 +25,17 @@
                                         </div>
                                     </div>
 
-                                    <h4 class="header-title mt-0 mb-3">Sửa Danh Mục</h4>
+                                    <h4 class="header-title mt-0 mb-3">Sửa tag</h4>
 
                                     <form data-parsley-validate novalidate method="post">
                                         <div class="form-group">
-                                            <label for="">Tên Danh Mục</label>
-                                            <input type="text" name="name" value="<?=$oneRecode['tendm']?>"  parsley-trigger="change" required
-                                                   placeholder="Nhập tên nhà sản xuất" class="form-control" id="userName">
+                                            <label for="">Tên tag</label>
+                                            <input type="text" name="name" value="<?=$oneRecode['name']?>"  parsley-trigger="change" required
+                                                   placeholder="Nhập tag" class="form-control" id="userName">
                                         </div>
-                                      
+                                       
                                         <div class="form-group text-right mb-0 ">
-                                            <a href="?ctrl=danhmuc&act=index" clas="btn btn-secondary waves-effect waves-light">Huỷ</a>
+                                            <a href="?ctrl=tag&act=index" clas="btn btn-secondary waves-effect waves-light">Huỷ</a>
                                             <input type="submit" name="them" class="btn btn-primary waves-effect waves-light mr-1" value="Sửa">
                                         </div>
 

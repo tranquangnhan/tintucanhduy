@@ -5,7 +5,7 @@
     require_once "../system/database.php";
     require_once "../lib/myfunctions.php";
 
-    define('ARR_CONTROLLER',["home","binhluan","tintuc","donhang","danhmuc","users","thongbao","thuoctinh"]);
+    define('ARR_CONTROLLER',["home","tag","tintuc","donhang","danhmuc","users","thongbao","thuoctinh"]);
     $ctrl = 'danhmuc';
     if(isset($_GET['ctrl'])==true) $ctrl=$_GET['ctrl'];
     if(in_array($ctrl,ARR_CONTROLLER)==false) die("Không thấy địa chỉ not found 404");

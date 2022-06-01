@@ -140,8 +140,21 @@ class Model_TinTuc extends Model_db{
         $sql = "SELECT * FROM tintuc WHERE id != 0";
         if ($CurrentPage !== 0)
         {
-            $sql .= " GROUP BY id LIMIT ".($CurrentPage - 1) * PAGE_SIZE.", ".PAGE_SIZE;
+            $sql .= " GROUP BY id ORDER BY id DESC LIMIT ".($CurrentPage - 1) * PAGE_SIZE.", ".PAGE_SIZE;
         }
         return $this->result1(0,$sql);
+    }
+    function addTagToNew($idLastTinTuc,$item){
+        $sql = "INSERT INTO fktagtintuc(idtintuc,idtag) VALUE(?,?)";
+        return $this->exec1($sql,$idLastTinTuc,$item);
+    }
+
+    function getTagById($id){
+        $sql = "SELECT idtag FROM fktagtintuc WHERE idtintuc=?";
+        return $this->result1(0,$sql,$id);
+    }
+    function delTagById($id){
+        $sql = "DELETE FROM fktagtintuc WHERE idtintuc = ?";
+        return $this->exec1($sql,$id);
     }
 }

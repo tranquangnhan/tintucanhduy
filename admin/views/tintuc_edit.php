@@ -82,7 +82,33 @@
                                           
                                             </div>
                                         </div>
-                                     
+                                      
+                                        <div class="row">
+                                            <div class="col-lg-12">
+                                                 <label for="">Tag</label>
+                                                    <select name="tags[]" class="select2 select2-multiple" multiple="multiple" multiple data-placeholder="Chọn tag ...">
+                                                        <?php 
+                                                            function callbackMap($n)
+                                                            {
+                                                                return  $n['idtag'];
+                                                            }
+                
+                                                            $b = array_map('callbackMap', $getTagById);
+                                                            foreach ($listTag as $index=> $value) {
+                                                                $key = array_search($value['id'],  $b);
+                                                                if($key != ""){
+                                                                    echo '<option selected value="'. $value['id'].'">'. $value['name'].'</option>';
+                                                                }else{
+                                                                    echo '<option value="'. $value['id'].'">'. $value['name'].'</option>';
+                                                                }
+                                                            }
+                                                          
+                                                        ?>
+                                                        
+                                                    </select>
+                                            </div>
+
+                                        </div>
                                         <br>
                                         <label for="">Nội Dung</label>
                                         <textarea id="editor1" style="height: 300px;width:100%" name="content" ><?=$oneRecode['content']?></textarea>
