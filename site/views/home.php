@@ -11,7 +11,7 @@
                                 <!-- Post Item Start -->
                                 <div class="post--item post--layout-1 post--title-larger">
                                     <div class="post--img">
-                                        <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/banner-01.jpg" alt=""></a>
+                                        <a href="news-single-v1.html" class="thumb"><img src="uploads/<?=$getTitleNew[0]['img']?>" alt=""></a>
                                         <a href="#" class="cat">Politics</a>
                                       
 
@@ -38,7 +38,7 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-1 post--title-large">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/banner-02.jpg" alt=""></a>
+                                                <a href="news-single-v1.html" class="thumb"><img src="uploads/<?=$getTitleNew[1]['img']?>" alt=""></a>
                                                 <a href="#" class="cat">Travel</a>
                                                 <div class="post--info">
                                                     <ul class="nav meta">
@@ -61,7 +61,7 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-1 post--title-large">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/banner-03.jpg" alt=""></a>
+                                                <a href="news-single-v1.html" class="thumb"><img src="uploads/<?=$getTitleNew[2]['img']?>" alt=""></a>
                                                 <a href="#" class="cat">Education</a>                                
                                                 <div class="post--info">
                                                     <ul class="nav meta">
@@ -84,7 +84,7 @@
                                         <!-- Post Item Start -->
                                         <div class="post--item post--layout-1 post--title-larger">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/banner-04.jpg" alt=""></a>
+                                                <a href="news-single-v1.html" class="thumb"><img src="uploads/<?=$getTitleNew[3]['img']?>" alt=""></a>
                                                 <a href="#" class="cat">Politics</a>
                                                 <div class="post--info">
                                                     <ul class="nav meta">
