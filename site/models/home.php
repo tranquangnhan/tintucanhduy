@@ -338,5 +338,9 @@ class Model_home extends Model_db{
         $sql = "SELECT * FROM tintuc WHERE iddm = ? AND id != ? ORDER BY id DESC LIMIT 2 ";
         return $this->result1(0,$sql,$idCate,$id);
     }
+    function getAllNewView(){
+        $sql = "SELECT * FROM tintuc ORDER BY views DESC LIMIT 10";
+        return $this->result1(0,$sql);
+    }
 }
 

@@ -13,6 +13,7 @@ class Home{
         $this->getCate = $this->model->getCate();
         $this->getTitleAll = $this->model->getTitleAll();
         $this->getAllNew = $this->model->getAllNew();
+        $this->getAllNewView = $this->model->getAllNewView();
 
         if(isset($_GET['q'])){
             $this->cat();

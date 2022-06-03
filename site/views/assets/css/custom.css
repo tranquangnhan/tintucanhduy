@@ -13,7 +13,7 @@ Author URI  : https://themeforest.net/user/themelooks
     object-fit: cover;
 }
 .popular-img{
-    height: 605px ;
+    height: 351px ;
 }
  img{
     height: 100% ;
@@ -25,20 +25,94 @@ Author URI  : https://themeforest.net/user/themelooks
     object-fit: cover;
 }
 .post-right{
-    height: 275px ; 
+    height: 168px ; 
 }
 .post-bottom{
-    height: calc(605px - 275px - 15px); 
+    height: calc(351px - 168px - 15px); 
 }
-.post-large{
-    height: 200px ; 
+
+.post-large-0{
+    height: 219px ; 
 }
-.post-small img{
+.post-small-0 img{
     height: 100px ; 
 }
+
+.post-large-1{
+    height: 219px ; 
+}
+.post-small-1 img{
+    height: 70px ; 
+}
+
+.post-large-2{
+    height: 219px ; 
+}
+.post-small-2 img{
+    height: 100px ; 
+}
+
+.post-large-3{
+    height: 219px ; 
+}
+.post-small-3 img{
+    height: 100px ; 
+}
+
+.post-large-4{
+    height: 219px ; 
+}
+.post-small-4 img{
+    height: 70px ; 
+}
+
+.post-large-5{
+    height: 219px ; 
+}
+.post-small-5 img{
+    height: 70px ; 
+}
+
+.post-large-6{
+    height: 219px ; 
+}
+.post-small-6 img{
+    height: 100px ; 
+}
+
+.post-7{
+    height: 200px ; 
+}
+
+.post-widget{
+    height: 200px ; 
+}
+
 .mt-2{
     margin-top: 2rem;
 }
 .post-cate img{
-    height: 200px ; 
+    height: 70px ; 
+}
+
+.label_title1 {
+    display: -webkit-box;
+    max-height: 3.2rem;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 1;
+    line-height: 1.6rem;
+}
+
+.label_title2 {
+    display: -webkit-box;
+    max-height: 3.2rem;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
+    -webkit-line-clamp: 2;
+    line-height: 1.6rem;
 }

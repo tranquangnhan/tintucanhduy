@@ -29,6 +29,7 @@
 
                                             <div class="title">
                                                 <h2 class="h4"><a href="<?= $linkDetail?>" class="btn-link"><?=$getTitleNew[0]['title']?></a></h2>
+                                                <span class="label_title1"><?=$getTitleNew[0]['description']?></span>
                                             </div>
                                         </div>
                                     </div>
@@ -57,6 +58,7 @@
 
                                                     <div class="title">
                                                         <h2 class="h4"><a href="<?= $linkDetail?>" class="btn-link"><?=$getTitleNew[1]['title']?></a></h2>
+                                                        <span class="label_title1"><?=$getTitleNew[1]['description']?></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -83,6 +85,7 @@
 
                                                     <div class="title">
                                                         <h2 class="h4"><a href="<?= $linkDetail?>" class="btn-link"><?=$getTitleNew[2]['title']?></a></h2>
+                                                        <span class="label_title1"><?=$getTitleNew[2]['description']?></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -110,6 +113,7 @@
 
                                                     <div class="title">
                                                         <h2 class="h4"><a href="<?= $linkDetail?>" class="btn-link"><?=$getTitleNew[3]['title']?></a></h2>
+                                                        <span class="label_title1"><?=$getTitleNew[3]['description']?></span>
                                                     </div>
                                                 </div>
                                             </div>
@@ -133,8 +137,8 @@
                                 <div class="col-md-6 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4"><?=$this->getCate[0]['tendm']?></h2>
-
+                                        <a href="danh-muc/<?=$this->getCate[0]['slug']?>"><h2 class="h4"><?=$this->getCate[0]['tendm']?></h2></a>
+                                        
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_world_news_posts">
                                                 <i class="fa fa-long-arrow-left"></i>
@@ -155,21 +159,23 @@
                                             <?php
                                             foreach ($getNewbyCateLimit0 as $key => $value) {
                                             $linkDetail = 'bai-viet/'.$value['slug'];
+                                            $date=date_create($value['date']);
                                               if($key==0){
                                                   echo '
                                                         <li class="col-xs-12">
                                                             <!-- Post Item Start -->
-                                                            <div class="post--item post--layout-1 post-large">
+                                                            <div class="post--item post--layout-1 post-large-0">
                                                                 <div class="post--img">
                                                                     <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
                                                                     <a href="#" class="cat">War</a>
                                                                     <div class="post--info">
                                                                         <ul class="nav meta">
-                                                                            <li><a href="#">Yeasterday 03:52 pm</a></li>
+                                                                            <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                                         </ul>
 
                                                                         <div class="title">
                                                                             <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
+                                                                            <span class="label_title1">'.$value['description'].'</span>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -187,17 +193,18 @@
                                                   echo '
                                                   <li class="col-xs-6">
                                                   <!-- Post Item Start -->
-                                                  <div class="post--item post--layout-2 post-small">
+                                                  <div class="post--item post--layout-2 post-small-0">
                                                       <div class="post--img">
                                                           <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
   
                                                           <div class="post--info">
                                                               <ul class="nav meta">
-                                                                  <li><a href="#">17 April 2017</a></li>
+                                                                  <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                               </ul>
   
                                                               <div class="title">
                                                                   <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
+                                                                  <span class="label_title2">'.$value['description'].'</span>
                                                               </div>
                                                           </div>
                                                       </div>
@@ -238,7 +245,7 @@
                                 <div class="col-md-6 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4"><?=$this->getCate[1]['tendm']?></h2>
+                                        <a href="danh-muc/<?=$this->getCate[1]['slug']?>"><h2 class="h4"><?=$this->getCate[1]['tendm']?></h2></a>
 
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_technology_posts">
@@ -260,21 +267,23 @@
                                         <?php
                                             foreach ($getNewbyCateLimit1 as $key => $value) {
                                                 $linkDetail = 'bai-viet/'.$value['slug'];
+                                                $date=date_create($value['date']);
                                                 if($key==0){
                                                   echo '
                                                   <li>
                                                   <!-- Post Item Start -->
-                                                  <div class="post--item post--layout-1 post-large">
+                                                  <div class="post--item post--layout-1 post-large-1">
                                                       <div class="post--img">
                                                           <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
                                                           <a href="#" class="cat">Computer</a>  
                                                           <div class="post--info">
                                                               <ul class="nav meta">
-                                                                  <li><a href="#">Yeasterday 03:52 pm</a></li>
+                                                                  <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                               </ul>
   
                                                               <div class="title">
                                                                   <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
+                                                                  <spanclass="label_title1">'.$value['description'].'</span>
                                                               </div>
                                                           </div>
                                                       </div>
@@ -287,18 +296,18 @@
                                                   echo '
                                                   <li>
                                                 <!-- Post Item Start -->
-                                                <div class="post--item post--layout-3 post-small">
+                                                <div class="post--item post--layout-3 post-small-1">
                                                     <div class="post--img">
                                                         <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">Bune</a></li>
-                                                                <li><a href="#">16 April 2017</a></li>
+                                                                <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                             </ul>
 
                                                             <div class="title">
                                                                 <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <span class="label_title2">'.$value['description'].'</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -338,7 +347,7 @@
                                 <div class="col-md-12 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4"><?=$this->getCate[2]['tendm']?></h2>
+                                        <a href="danh-muc/<?=$this->getCate[2]['slug']?>"><h2 class="h4"><?=$this->getCate[2]['tendm']?></h2></a>
 
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_finance_posts">
@@ -359,23 +368,25 @@
                                         <ul class="nav row" data-ajax-content="inner">
                                         <?php
                                             foreach ($getNewbyCateLimit2 as $key => $value) {
+                                            $linkDetail = 'bai-viet/'.$value['slug'];
+                                            $date=date_create($value['date']);
                                               if($key==0){
                                                   echo '
                                                   <li class="col-md-6">
                                                   <!-- Post Item Start -->
-                                                  <div class="post--item post--layout-2">
+                                                  <div class="post--item post--layout-2 post-large-2">
                                                       <div class="post--img">
-                                                          <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/finance-01.jpg" alt=""></a>
+                                                          <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
                                                           <a href="#" class="cat">Business</a>
   
                                                           <div class="post--info">
                                                               <ul class="nav meta">
-                                                                  <li><a href="#">Vassago</a></li>
-                                                                  <li><a href="#">Today 03:30 am</a></li>
+                                                                  <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                               </ul>
   
                                                               <div class="title">
-                                                                  <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$value['title'].'</a></h3>
+                                                                  <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
+                                                                  <span class="label_title2">'.$value['description'].'</span>
                                                               </div>
                                                           </div>
                                                       </div>
@@ -395,18 +406,18 @@
                                                   echo '
                                                   <li class="col-xs-6">
                                                         <!-- Post Item Start -->
-                                                        <div class="post--item post--layout-2">
+                                                        <div class="post--item post--layout-2 post-small-2">
                                                             <div class="post--img">
-                                                                <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/finance-02.jpg" alt=""></a>
+                                                                <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
 
                                                                 <div class="post--info">
                                                                     <ul class="nav meta">
-                                                                        <li><a href="#">Zepar</a></li>
-                                                                        <li><a href="#">Today 03:52 pm</a></li>
+                                                                        <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                                     </ul>
 
                                                                     <div class="title">
-                                                                        <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$value['title'].'</a></h3>
+                                                                        <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
+                                                                        <span class="label_title1">'.$value['description'].'</span>
                                                                     </div>
                                                                 </div>
                                                             </div>
@@ -445,8 +456,7 @@
                                 <div class="col-md-6 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4"><?=$this->getCate[3]['tendm']?></h2>
-
+                                        <a href="danh-muc/<?=$this->getCate[3]['slug']?>"><h2 class="h4"><?=$this->getCate[3]['tendm']?></h2></a>
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_politics_posts">
                                                 <i class="fa fa-long-arrow-left"></i>
@@ -466,21 +476,24 @@
                                         <ul class="nav row gutter--15" data-ajax-content="inner">
                                         <?php
                                             foreach ($getNewbyCateLimit3 as $key => $value) {
+                                                $linkDetail = 'bai-viet/'.$value['slug'];
+                                                $date=date_create($value['date']);
                                               if($key==0){
                                                   echo '
                                                   <li class="col-xs-12">
                                                 <!-- Post Item Start -->
-                                                <div class="post--item post--layout-1">
+                                                <div class="post--item post--layout-1 post-large-3">
                                                     <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/politics-01.jpg" alt=""></a>
+                                                        <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
                                                         <a href="#" class="cat">Election</a>
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">Yeasterday 03:52 pm</a></li>
+                                                                <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                             </ul>
 
                                                             <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <span class="label_title1">'.$value['description'].'</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -498,17 +511,18 @@
                                                   echo '
                                                   <li class="col-xs-6">
                                                 <!-- Post Item Start -->
-                                                <div class="post--item post--layout-2">
+                                                <div class="post--item post--layout-2 post-small-3">
                                                     <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/politics-02.jpg" alt=""></a>
+                                                        <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">17 April 2017</a></li>
+                                                                <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                             </ul>
 
                                                             <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <span class="label_title2">'.$value['description'].'</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -549,7 +563,7 @@
                                 <div class="col-md-6 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4"><?=$this->getCate[4]['tendm']?></h2>
+                                        <a href="danh-muc/<?=$this->getCate[4]['slug']?>"><h2 class="h4"><?=$this->getCate[4]['tendm']?></h2></a>
 
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_sports_posts">
@@ -570,22 +584,25 @@
                                         <ul class="nav" data-ajax-content="inner">
                                         <?php
                                             foreach ($getNewbyCateLimit4 as $key => $value) {
+                                                $linkDetail = 'bai-viet/'.$value['slug'];
+                                                $date=date_create($value['date']);
                                               if($key==0){
                                                   echo '
                                                   <li>
                                                 <!-- Post Item Start -->
-                                                <div class="post--item post--layout-1">
+                                                <div class="post--item post--layout-1 post-large-4">
                                                     <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/sports-01.jpg" alt=""></a>
+                                                        <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
                                                         <a href="#" class="cat">Basketball</a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">Yeasterday 03:52 pm</a></li>
+                                                                <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                             </ul>
 
                                                             <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <span class="label_title1">'.$value['description'].'</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -598,17 +615,18 @@
                                                   echo '
                                                   <li>
                                                 <!-- Post Item Start -->
-                                                <div class="post--item post--layout-3">
+                                                <div class="post--item post--layout-3 post-small-4">
                                                     <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/sports-02.jpg" alt=""></a>
+                                                        <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">16 April 2017</a></li>
+                                                                <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                             </ul>
 
                                                             <div class="title">
                                                                 <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <span class="label_title1">'.$value['description'].'</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -708,33 +726,36 @@
                             <div class="widget">
                                 <div class="widget--title">
                                     <h2 class="h4">Tin Mới Nhất</h2>
-                                
+                                    
                                     <i class="icon fa fa-newspaper-o"></i>
                                 </div>
 
                                 <!-- List Widgets Start -->
-                                <div class="list--widget list--widget-1">
+                                <div class="list--widget list--widget-1 post-cate">
                                     
                                     <!-- Post Items Start -->
                                     <div class="post--items post--items-3" data-ajax-content="outer">
                                         <ul class="nav" data-ajax-content="inner">
                                         <?php 
-                                    foreach($this->getAllNew as $item_New)
+                                    foreach($this->getAllNew as $value)
                                     {
+                                        $linkDetail = 'bai-viet/'.$value['slug'];
+                                        $date=date_create($value['date']);
                                     echo '
                                     <li>
                                                 <!-- Post Item Start -->
                                                 <div class="post--item post--layout-3">
                                                     <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/widgets-img/news-widget-01.jpg" alt=""></a>
+                                                        <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">16 April 2017</a></li>
+                                                                <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                             </ul>
 
                                                             <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$item_New["title"].'</a></h3>
+                                                                <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value["title"].'</a></h3>
+                                                                <span class="label_title1">'.$value["description"].'</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -785,8 +806,7 @@
                                 <div class="col-md-6 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4"><?=$this->getCate[5]['tendm']?></h2>
-
+                                        <a href="danh-muc/<?=$this->getCate[5]['slug']?>"><h2 class="h4"><?=$this->getCate[5]['tendm']?></h2></a>
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_health_fitness_posts">
                                                 <i class="fa fa-long-arrow-left"></i>
@@ -806,22 +826,25 @@
                                         <ul class="nav" data-ajax-content="inner">
                                         <?php
                                             foreach ($getNewbyCateLimit5 as $key => $value) {
+                                                $linkDetail = 'bai-viet/'.$value['slug'];
+                                                $date=date_create($value['date']);
                                               if($key==0){
                                                   echo '
                                                   <li>
                                                 <!-- Post Item Start -->
-                                                <div class="post--item post--layout-1">
+                                                <div class="post--item post--layout-1 post-large-5">
                                                     <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/health-and-fitness-01.jpg" alt=""></a>
+                                                        <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
                                                         <a href="#" class="cat">Business</a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">Yeasterday 03:52 pm</a></li>
+                                                                <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                             </ul>
 
                                                             <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <span class="label_title1">'.$value['description'].'</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -834,17 +857,18 @@
                                                   echo '
                                                   <li>
                                                 <!-- Post Item Start -->
-                                                <div class="post--item post--layout-3">
+                                                <div class="post--item post--layout-3 post-small-5">
                                                     <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/health-and-fitness-02.jpg" alt=""></a>
+                                                        <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">16 April 2017</a></li>
+                                                                <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                             </ul>
 
                                                             <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <span class="label_title1">'.$value['description'].'</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -875,8 +899,7 @@
                                 <div class="col-md-6 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4"><?=$this->getCate[6]['tendm']?></h2>
-
+                                        <a href="danh-muc/<?=$this->getCate[6]['slug']?>"><h2 class="h4"><?=$this->getCate[6]['tendm']?></h2></a>
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_lifestyle_posts">
                                                 <i class="fa fa-long-arrow-left"></i>
@@ -896,22 +919,25 @@
                                         <ul class="nav row gutter--15" data-ajax-content="inner">
                                         <?php
                                             foreach ($getNewbyCateLimit6 as $key => $value) {
+                                                $linkDetail = 'bai-viet/'.$value['slug'];
+                                                $date=date_create($value['date']);
                                               if($key==0){
                                                   echo '
                                                   <li class="col-xs-12">
                                                   <!-- Post Item Start -->
-                                                  <div class="post--item post--layout-1">
+                                                  <div class="post--item post--layout-1 post-large-6">
                                                       <div class="post--img">
-                                                          <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/lifestyle-01.jpg" alt=""></a>
+                                                          <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
                                                           <a href="#" class="cat">Fashion</a>
   
                                                           <div class="post--info">
                                                               <ul class="nav meta">
-                                                                  <li><a href="#">Yeasterday 03:52 pm</a></li>
+                                                                  <li><a href="#">'.date_format($date,"d/m/Y").'/a></li>
                                                               </ul>
   
                                                               <div class="title">
-                                                                  <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$value['title'].'</a></h3>
+                                                                  <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
+                                                                  <span class="label_title1">'.$value['description'].'</span>
                                                               </div>
                                                           </div>
                                                       </div>
@@ -929,17 +955,18 @@
                                                   echo '
                                                   <li class="col-xs-6">
                                                 <!-- Post Item Start -->
-                                                <div class="post--item post--layout-2">
+                                                <div class="post--item post--layout-2 post-small-5">
                                                     <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/lifestyle-02.jpg" alt=""></a>
+                                                        <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">17 April 2017</a></li>
+                                                                <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                             </ul>
 
                                                             <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <span class="label_title2">'.$value['description'].'</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -979,7 +1006,7 @@
                                 <div class="col-md-12 ptop--30 pbottom--30">
                                     <!-- Post Items Title Start -->
                                     <div class="post--items-title" data-ajax="tab">
-                                        <h2 class="h4"><?=$this->getCate[7]['tendm']?></h2>
+                                        <a href="danh-muc/<?=$this->getCate[7]['slug']?>"><h2 class="h4"><?=$this->getCate[7]['tendm']?></h2></a>
 
                                         <div class="nav">
                                             <a href="#" class="prev btn-link" data-ajax-action="load_prev_food_resturent_posts">
@@ -1000,21 +1027,23 @@
                                         <ul class="nav row gutter--15" data-ajax-content="inner">
                                         <?php
                                             foreach ($getNewbyCateLimit7 as $key => $value) {
- 
+                                                $linkDetail = 'bai-viet/'.$value['slug'];
+                                                $date=date_create($value['date']);
                                                   echo '
                                                   <li class="col-md-4 col-xs-6 col-xxs-12">
                                                 <!-- Post Item Start -->
-                                                <div class="post--item post--layout-1">
+                                                <div class="post--item post--layout-1 post-7">
                                                     <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/food-and-resturent-01.jpg" alt=""></a>
+                                                        <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">Yeasterday 03:52 pm</a></li>
+                                                                <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                             </ul>
 
                                                             <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <span class="label_title1">'.$value['description'].'</span>
                                                             </div>
                                                         </div>
                                                     </div>
@@ -1160,111 +1189,10 @@
                     <!-- Main Sidebar Start -->
                     <div class="main--sidebar col-md-4 col-sm-5 ptop--30 pbottom--30" data-sticky-content="true">
                         <div class="sticky-content-inner">
-                            
-
-                            
-
                             <!-- Widget Start -->
                             <div class="widget">
                                 <div class="widget--title" data-ajax="tab">
-                                    <h2 class="h4">Readers Opinion</h2>
-
-                                    <div class="nav">
-                                        <a href="#" class="prev btn-link" data-ajax-action="load_prev_readers_opinion_widget">
-                                            <i class="fa fa-long-arrow-left"></i>
-                                        </a>
-
-                                        <span class="divider">/</span>
-
-                                        <a href="#" class="next btn-link" data-ajax-action="load_next_readers_opinion_widget">
-                                            <i class="fa fa-long-arrow-right"></i>
-                                        </a>
-                                    </div>
-                                </div>
-
-                                <!-- List Widgets Start -->
-                                <div class="list--widget list--widget-2" data-ajax-content="outer">
-                                    <!-- Post Items Start -->
-                                    <div class="post--items post--items-3">
-                                        <ul class="nav" data-ajax-content="inner">
-                                            <li>
-                                                <!-- Post Item Start -->
-                                                <div class="post--item post--layout-3">
-                                                    <div class="post--img">
-                                                        <span class="thumb"><img src="site/views/assets/img/widgets-img/readers-opinion-01.png" alt=""></span>
-
-                                                        <div class="post--info">
-                                                            <div class="title">
-                                                                <h3 class="h4">Long established fact that a reader will be distracted</h3>
-                                                            </div>
-
-                                                            <ul class="nav meta">
-                                                                <li><span>by Ninurta</span></li>
-                                                                <li><span>16 April 2017</span></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Post Item End -->
-                                            </li>
-                                            <li>
-                                                <!-- Post Item Start -->
-                                                <div class="post--item post--layout-3">
-                                                    <div class="post--img">
-                                                        <span class="thumb"><img src="site/views/assets/img/widgets-img/readers-opinion-02.png" alt=""></span>
-
-                                                        <div class="post--info">
-                                                            <div class="title">
-                                                                <h3 class="h4">Long established fact that a reader will be distracted</h3>
-                                                            </div>
-
-                                                            <ul class="nav meta">
-                                                                <li><span>by Ninurta</span></li>
-                                                                <li><span>16 April 2017</span></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Post Item End -->
-                                            </li>
-                                            <li>
-                                                <!-- Post Item Start -->
-                                                <div class="post--item post--layout-3">
-                                                    <div class="post--img">
-                                                        <span class="thumb"><img src="site/views/assets/img/widgets-img/readers-opinion-03.png" alt=""></span>
-
-                                                        <div class="post--info">
-                                                            <div class="title">
-                                                                <h3 class="h4">Long established fact that a reader will be distracted</h3>
-                                                            </div>
-
-                                                            <ul class="nav meta">
-                                                                <li><span>by Ninurta</span></li>
-                                                                <li><span>16 April 2017</span></li>
-                                                            </ul>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Post Item End -->
-                                            </li>
-                                        </ul>
-
-                                        <!-- Preloader Start -->
-                                        <div class="preloader bg--color-0--b" data-preloader="1">
-                                            <div class="preloader--inner"></div>
-                                        </div>
-                                        <!-- Preloader End -->
-                                    </div>
-                                    <!-- Post Items End -->
-                                </div>
-                                <!-- List Widgets End -->
-                            </div>
-                            <!-- Widget End -->
-
-                            <!-- Widget Start -->
-                            <div class="widget">
-                                <div class="widget--title" data-ajax="tab">
-                                    <h2 class="h4">Editors Choice</h2>
+                                    <h2 class="h4">Xem Nhiều Nhất</h2>
 
                                     <div class="nav">
                                         <a href="#" class="prev btn-link" data-ajax-action="load_prev_editors_choice_widget">
@@ -1280,90 +1208,40 @@
                                 </div>
 
                                 <!-- List Widgets Start -->
-                                <div class="list--widget list--widget-1" data-ajax-content="outer">
+                                <div class="list--widget list--widget-1 post-cate" data-ajax-content="outer">
                                     <!-- Post Items Start -->
                                     <div class="post--items post--items-3">
                                         <ul class="nav" data-ajax-content="inner">
-                                            <li>
+                                            <?php 
+                                            foreach($this->getAllNewView as $value)
+                                            {
+                                                $linkDetail = 'bai-viet/'.$value['slug'];
+                                            echo '
+                                   
+
+                                                    <li>
                                                 <!-- Post Item Start -->
                                                 <div class="post--item post--layout-3">
                                                     <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/widgets-img/editors-choice-01.jpg" alt=""></a>
+                                                        <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">Ninurta</a></li>
                                                                 <li><a href="#">16 April 2017</a></li>
                                                             </ul>
 
                                                             <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted</a></h3>
+                                                                <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value["title"].'</a></h3>
+                                                                <span class="label_title1">'.$value["description"].'</span>
                                                             </div>
                                                         </div>
                                                     </div>
                                                 </div>
                                                 <!-- Post Item End -->
                                             </li>
-                                            <li>
-                                                <!-- Post Item Start -->
-                                                <div class="post--item post--layout-3">
-                                                    <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/widgets-img/editors-choice-02.jpg" alt=""></a>
-
-                                                        <div class="post--info">
-                                                            <ul class="nav meta">
-                                                                <li><a href="#">Orcus</a></li>
-                                                                <li><a href="#">16 April 2017</a></li>
-                                                            </ul>
-
-                                                            <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted</a></h3>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Post Item End -->
-                                            </li>
-                                            <li>
-                                                <!-- Post Item Start -->
-                                                <div class="post--item post--layout-3">
-                                                    <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/widgets-img/editors-choice-03.jpg" alt=""></a>
-
-                                                        <div class="post--info">
-                                                            <ul class="nav meta">
-                                                                <li><a href="#">Rahab</a></li>
-                                                                <li><a href="#">16 April 2017</a></li>
-                                                            </ul>
-
-                                                            <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted</a></h3>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Post Item End -->
-                                            </li>
-                                            <li>
-                                                <!-- Post Item Start -->
-                                                <div class="post--item post--layout-3">
-                                                    <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/widgets-img/editors-choice-04.jpg" alt=""></a>
-
-                                                        <div class="post--info">
-                                                            <ul class="nav meta">
-                                                                <li><a href="#">Tannin</a></li>
-                                                                <li><a href="#">16 April 2017</a></li>
-                                                            </ul>
-
-                                                            <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">Long established fact that a reader will be distracted</a></h3>
-                                                            </div>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <!-- Post Item End -->
-                                            </li>
+                                            ';    
+                                            }
+                                            ?>
                                         </ul>
 
                                         <!-- Preloader Start -->
