@@ -91,8 +91,12 @@ Author URI  : https://themeforest.net/user/themelooks
 .mt-2{
     margin-top: 2rem;
 }
-.post-cate img{
+.post-sidebar img{
     height: 70px ; 
+    width: 100px !important;
+}
+.img-categories img{
+    height: 200px;
 }
 
 .label_title1 {
@@ -115,4 +119,13 @@ Author URI  : https://themeforest.net/user/themelooks
     white-space: normal;
     -webkit-line-clamp: 2;
     line-height: 1.6rem;
+}
+
+.limit-title {
+    display: -webkit-box;
+    -webkit-line-clamp: 2;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: normal;
 }

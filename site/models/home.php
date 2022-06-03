@@ -221,16 +221,16 @@ class Model_home extends Model_db{
    function GetAllNewFormCate($slug,$CurrentPage){
       $sql = "SELECT id FROM danhmuc WHERE slug=?";
       $idNew = $this->result1(1,$sql,$slug)['id'];
-        // print_r($CurrentPage);
-      $sql = "SELECT * FROM tintuc WHERE id != 0";
+      $sql = "SELECT *,danhmuc.slug as slugdm FROM tintuc ";
+      $sql .= " INNER JOIN danhmuc ON danhmuc.id = tintuc.iddm"; 
       if ($idNew != NULL)
       {
-        $sql .= " AND iddm = ".$idNew; 
+        $sql .= " WHERE tintuc.id != 0 AND iddm = ".$idNew; 
       }
-      
+    
       if ($CurrentPage !== 0)
       {
-          $sql .= " GROUP BY id LIMIT ".($CurrentPage - 1) * PAGE_SIZE.", ".PAGE_SIZE;
+          $sql .= " GROUP BY tintuc.id LIMIT ".($CurrentPage - 1) * PAGE_SIZE.", ".PAGE_SIZE;
       }
       
       return $this->result1(0,$sql);
