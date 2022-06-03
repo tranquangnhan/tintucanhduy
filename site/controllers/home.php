@@ -45,6 +45,7 @@ class Home{
      function home()
      {
       $getTitleNew = $this->model->getTitleNew();
+      $getCatebyTinTuc = $this->model->getCatebyTinTuc();
       $getNewbyCate0 = $this->model->getNewbyCate($this->getCate[0]['id']);
       $getNewbyCateLimit0 = $this->model->getNewbyCateLimit($this->getCate[0]['id'], 5);
       $getNewbyCateLimit1 = $this->model->getNewbyCateLimit($this->getCate[1]['id'], 5);

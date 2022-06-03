@@ -15,7 +15,7 @@
                                 <div class="post--item post--layout-1 post--title-larger popular-img">
                                     <div class="post--img">
                                         <a href="<?= $linkDetail?>" class="thumb"><img src="uploads/<?=$getTitleNew[0]['img']?>" alt=""></a>
-                                        <a href="#" class="cat">Politics</a>
+                                        <a href="danh-muc/<?=$getCatebyTinTuc[0]['slugdm']?>" class="cat"><?=$getCatebyTinTuc[0]['tendm']?></a>
                                       
 
                                         <div class="post--info">
@@ -47,7 +47,7 @@
                                         <div class="post--item post--layout-1 post--title-large post-right">
                                             <div class="post--img">
                                                 <a href="<?= $linkDetail?>" class="thumb"><img src="uploads/<?=$getTitleNew[1]['img']?>" alt=""></a>
-                                                <a href="#" class="cat">Travel</a>
+                                                <a href="danh-muc/<?=$getCatebyTinTuc[1]['slugdm']?>" class="cat"><?=$getCatebyTinTuc[1]['tendm']?></a>
                                                 <div class="post--info">
                                                     <ul class="nav meta">
                                                         <li><a href="#"><?php 
@@ -74,7 +74,7 @@
                                         <div class="post--item post--layout-1 post--title-large post-right">
                                             <div class="post--img">
                                                 <a href="<?= $linkDetail?>" class="thumb"><img src="uploads/<?=$getTitleNew[2]['img']?>" alt=""></a>
-                                                <a href="#" class="cat">Education</a>                                
+                                                <a href="danh-muc/<?=$getCatebyTinTuc[2]['slugdm']?>" class="cat"><?=$getCatebyTinTuc[2]['tendm']?></a>                                
                                                 <div class="post--info">
                                                     <ul class="nav meta">
                                                         <li><a href="#"><?php 
@@ -101,7 +101,7 @@
                                         <div class="post--item post--layout-1 post--title-larger post-bottom">
                                             <div class="post--img">
                                                 <a href="<?= $linkDetail?>" class="thumb"><img src="uploads/<?=$getTitleNew[3]['img']?>" alt=""></a>
-                                                <a href="#" class="cat">Politics</a>
+                                                <a href="danh-muc/<?=$getCatebyTinTuc[3]['slugdm']?>" class="cat"><?=$getCatebyTinTuc[3]['tendm']?></a>
                                                 <div class="post--info">
                                                     <ul class="nav meta">
                                                         <li><a href="#"><?php 
@@ -160,6 +160,8 @@
                                             foreach ($getNewbyCateLimit0 as $key => $value) {
                                             $linkDetail = 'bai-viet/'.$value['slug'];
                                             $date=date_create($value['date']);
+                                            $getCate = $this->getCate[0]['tendm'];
+                                            $getSlug = $this->getCate[0]['slug'];
                                               if($key==0){
                                                   echo '
                                                         <li class="col-xs-12">
@@ -167,7 +169,7 @@
                                                             <div class="post--item post--layout-1 post-large-0">
                                                                 <div class="post--img">
                                                                     <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
-                                                                    <a href="#" class="cat">War</a>
+                                                                    <a href="danh-muc/'.$getSlug.'" class="cat">'.$getCate.'</a>
                                                                     <div class="post--info">
                                                                         <ul class="nav meta">
                                                                             <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
@@ -268,6 +270,8 @@
                                             foreach ($getNewbyCateLimit1 as $key => $value) {
                                                 $linkDetail = 'bai-viet/'.$value['slug'];
                                                 $date=date_create($value['date']);
+                                                $getCate = $this->getCate[1]['tendm'];
+                                                $getSlug = $this->getCate[1]['slug'];
                                                 if($key==0){
                                                   echo '
                                                   <li>
@@ -275,7 +279,7 @@
                                                   <div class="post--item post--layout-1 post-large-1">
                                                       <div class="post--img">
                                                           <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
-                                                          <a href="#" class="cat">Computer</a>  
+                                                          <a href="danh-muc/'.$getSlug.'" class="cat">'.$getCate.'</a>  
                                                           <div class="post--info">
                                                               <ul class="nav meta">
                                                                   <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
@@ -370,6 +374,8 @@
                                             foreach ($getNewbyCateLimit2 as $key => $value) {
                                             $linkDetail = 'bai-viet/'.$value['slug'];
                                             $date=date_create($value['date']);
+                                            $getCate = $this->getCate[2]['tendm'];
+                                            $getSlug = $this->getCate[2]['slug'];
                                               if($key==0){
                                                   echo '
                                                   <li class="col-md-6">
@@ -377,7 +383,7 @@
                                                   <div class="post--item post--layout-2 post-large-2">
                                                       <div class="post--img">
                                                           <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
-                                                          <a href="#" class="cat">Business</a>
+                                                          <a href="danh-muc/'.$getSlug.'" class="cat">'.$getCate.'</a>
   
                                                           <div class="post--info">
                                                               <ul class="nav meta">
@@ -478,6 +484,8 @@
                                             foreach ($getNewbyCateLimit3 as $key => $value) {
                                                 $linkDetail = 'bai-viet/'.$value['slug'];
                                                 $date=date_create($value['date']);
+                                                $getCate = $this->getCate[3]['tendm'];
+                                                $getSlug = $this->getCate[3]['slug'];
                                               if($key==0){
                                                   echo '
                                                   <li class="col-xs-12">
@@ -485,7 +493,7 @@
                                                 <div class="post--item post--layout-1 post-large-3">
                                                     <div class="post--img">
                                                         <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
-                                                        <a href="#" class="cat">Election</a>
+                                                        <a href="danh-muc/'.$getSlug.'" class="cat">'.$getCate.'</a>
                                                         <div class="post--info">
                                                             <ul class="nav meta">
                                                                 <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
@@ -586,6 +594,8 @@
                                             foreach ($getNewbyCateLimit4 as $key => $value) {
                                                 $linkDetail = 'bai-viet/'.$value['slug'];
                                                 $date=date_create($value['date']);
+                                                $getCate = $this->getCate[4]['tendm'];
+                                                $getSlug = $this->getCate[4]['slug'];
                                               if($key==0){
                                                   echo '
                                                   <li>
@@ -593,7 +603,7 @@
                                                 <div class="post--item post--layout-1 post-large-4">
                                                     <div class="post--img">
                                                         <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
-                                                        <a href="#" class="cat">Basketball</a>
+                                                        <a href="danh-muc/'.$getSlug.'" class="cat">'.$getCate.'</a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
@@ -828,6 +838,8 @@
                                             foreach ($getNewbyCateLimit5 as $key => $value) {
                                                 $linkDetail = 'bai-viet/'.$value['slug'];
                                                 $date=date_create($value['date']);
+                                                $getCate = $this->getCate[5]['tendm'];
+                                                $getSlug = $this->getCate[5]['slug'];
                                               if($key==0){
                                                   echo '
                                                   <li>
@@ -835,7 +847,7 @@
                                                 <div class="post--item post--layout-1 post-large-5">
                                                     <div class="post--img">
                                                         <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
-                                                        <a href="#" class="cat">Business</a>
+                                                        <a href="danh-muc/'.$getSlug.'" class="cat">'.$getCate.'</a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
@@ -921,6 +933,8 @@
                                             foreach ($getNewbyCateLimit6 as $key => $value) {
                                                 $linkDetail = 'bai-viet/'.$value['slug'];
                                                 $date=date_create($value['date']);
+                                                $getCate = $this->getCate[6]['tendm'];
+                                                $getSlug = $this->getCate[6]['slug'];
                                               if($key==0){
                                                   echo '
                                                   <li class="col-xs-12">
@@ -928,11 +942,11 @@
                                                   <div class="post--item post--layout-1 post-large-6">
                                                       <div class="post--img">
                                                           <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
-                                                          <a href="#" class="cat">Fashion</a>
+                                                          <a href="danh-muc/'.$getSlug.'" class="cat">'.$getCate.'</a>
   
                                                           <div class="post--info">
                                                               <ul class="nav meta">
-                                                                  <li><a href="#">'.date_format($date,"d/m/Y").'/a></li>
+                                                                  <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                               </ul>
   
                                                               <div class="title">
@@ -1029,12 +1043,15 @@
                                             foreach ($getNewbyCateLimit7 as $key => $value) {
                                                 $linkDetail = 'bai-viet/'.$value['slug'];
                                                 $date=date_create($value['date']);
+                                                $getCate = $this->getCate[7]['tendm'];
+                                                $getSlug = $this->getCate[7]['slug'];
                                                   echo '
                                                   <li class="col-md-4 col-xs-6 col-xxs-12">
                                                 <!-- Post Item Start -->
                                                 <div class="post--item post--layout-1 post-7">
                                                     <div class="post--img">
                                                         <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
+                                                        <a href="danh-muc/'.$getSlug.'" class="cat">'.$getCate.'</a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">

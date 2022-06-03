@@ -181,10 +181,10 @@
                 <div class="news-updates--list" data-marquee="true">
                     <ul class="nav">
                     <?php 
-                             foreach($this->getTitleAll as $item_title)
+                             foreach($this->getAllNew as $item_title)
                              {
                                echo '<li>
-                                <h3 class="h3"><a href="#">'.$item_title["title"].'</a></h3>
+                                <h3 class="h3"><a href="bai-viet/'.$item_title["slug"].'">'.$item_title["title"].'</a></h3>
                                 </li>';    
                              }
                             ?>
