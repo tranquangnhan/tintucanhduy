@@ -365,5 +365,10 @@ class Model_home extends Model_db{
         $sql = "SELECT * FROM danhmuc WHERE slug=?";
         return $this->result1(1,$sql,$slug);
     }
+
+    function getCatebyTinTuc(){
+        $sql = "SELECT *,danhmuc.slug as slugdm FROM danhmuc INNER JOIN tintuc ON tintuc.iddm = danhmuc.id ORDER BY tintuc.id DESC LIMIT 4";
+        return $this->result1(0,$sql);
+    }
 }
 
