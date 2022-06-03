@@ -79,11 +79,11 @@ class Home{
 
      function cat(){
 
-         // $producer = $this->model->getAllProducer();
+        
       
          $slug = $_GET['slug'];
-         
-
+         $OnePage =  $this->model->GetPageBySlug($slug);
+      
 
          if (isset($_GET['Page'])) $CurrentPage = $_GET['Page']; else $CurrentPage = 1;
          
@@ -91,11 +91,12 @@ class Home{
          $TotalNew = $this->model->CountAllNewFormCate($slug);
          
          if($TotalNew == 0) $TotalNew =1;
-   
-         $NewList = $this->model-> GetAllNewFormCate($slug,$CurrentPage);
          
-      
-         $Pagination =  $this->model->Page($TotalNew, $CurrentPage);
+         $NewList = $this->model-> GetAllNewFormCate($slug,$CurrentPage);
+   
+         $PageSize = PAGE_SIZE; 
+         $BaseLink = 'danh-muc';
+         $Pagination =  $this->model->Page($TotalNew, $CurrentPage,$PageSize,$BaseLink);
 
          $viewFile ="views/cate.php";
          require_once "views/layout.php";

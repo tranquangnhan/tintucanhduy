@@ -6,8 +6,8 @@
         <div class="main--breadcrumb">
             <div class="container">
                 <ul class="breadcrumb">
-                    <li><a href="home-1.html" class="btn-link"><i class="fa fm fa-home"></i>Home</a></li>
-                    <li class="active"><span>Archives</span></li>
+                    <li><a href="" class="btn-link"><i class="fa fm fa-home"></i>Home</a></li>
+                    <li class="active"><span><?=$OnePage['tendm']?></span></li>
                 </ul>
             </div>
         </div>
@@ -22,7 +22,7 @@
                         <div class="sticky-content-inner">
                             <!-- Page Title Start -->
                             <div class="page--title ptop--30">
-                                <h2 class="h2">Yearly Archives 2016</h2>
+                                <h1 class="h2"><?=$OnePage['tendm']?></h1>
                             </div>
                             <!-- Page Title End -->
 
@@ -65,11 +65,6 @@
                                     ';
                                         }
                                     ?>
-
-                                    
-
-                                    
-
                                 </ul>
                             </div>
                             <!-- Post Items End -->
@@ -82,20 +77,12 @@
 
                             <!-- Pagination Start -->
                             <div class="pagination--wrapper clearfix bdtop--1 bd--color-2 ptop--60 pbottom--30">
-                                <p class="pagination-hint float--left">Page 02 of 03</p>
+                              
 
                                 <ul class="pagination float--right">
-                                    <li><a href="#"><i class="fa fa-long-arrow-left"></i></a></li>
-                                    <li><a href="#">01</a></li>
-                                    <li class="active"><span>02</span></li>
-                                    <li><a href="#">03</a></li>
-                                    <li>
-                                        <i class="fa fa-angle-double-right"></i>
-                                        <i class="fa fa-angle-double-right"></i>
-                                        <i class="fa fa-angle-double-right"></i>
-                                    </li>
-                                    <li><a href="#">20</a></li>
-                                    <li><a href="#"><i class="fa fa-long-arrow-right"></i></a></li>
+                                
+                                    <?=$Pagination?>
+
                                 </ul>
                             </div>
                             <!-- Pagination End -->

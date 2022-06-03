@@ -91,9 +91,10 @@ class Model_home extends Model_db{
       return $this->result1(0,$sql,$id);
    }
 
-   public function Page (int $TotalProduct, int $CurrentPage)
+   function Page($TotalProduct, $CurrentPage,$PageSize,$BaseLink)
    {
-       $LimitPage = 5; // 5 sản phẩm 2 trang
+
+       $LimitPage = $PageSize; // 5 sản phẩm 2 trang
 
        $PagedHTML = ''; // khởi tạo
 
@@ -111,35 +112,51 @@ class Model_home extends Model_db{
        $IsFirstButtonHidden = '';
        $IsPreviousButtonHidden = '';
 
-       $TotalPage = ceil($TotalProduct / PAGE_SIZE); // tổng số page
-
-       if($CurrentPage === 1)
+       $TotalPage = ceil($TotalProduct / $LimitPage); // tổng số page
+       
+       if($CurrentPage == 1)
        {
-           $IsFirstButtonHidden = 'hidden';
-           $IsPreviousButtonHidden = 'hidden';
+           $IsFirstButtonHidden .= 'hidden';
+           $IsPreviousButtonHidden .= 'hidden';
        }
        // nếu page == 1 thì không cho quay về trang trước
 
-       if ((int) $CurrentPage === (int) $TotalPage)
+       if ((int) $CurrentPage == (int) $TotalPage)
        {
-           $IsLastButtonHidden = 'hidden';
-           $IsNextButtonHidden = 'hidden';
+           $IsLastButtonHidden .= 'hidden';
+           $IsNextButtonHidden .= 'hidden';
        }
+       if($_GET['slug']){
+           $slug = '/'.$_GET['slug'];
+       }else{
+           $slug = '';
+       }
+       if($_GET['order']&&$_GET['sortBy']){
+           $order = '/'.$_GET['sortBy'].$_GET['order'];
+       }else{
+           $order= '';
+       }
+
        // nếu tổng số page hiện tại == current page thì không có tiếp tục
 
-       $NextQuery['Page'] = $CurrentPage + 1;     //tạo ra query tiếp theo
+       $NextQuery['Page'] = $CurrentPage + 1; //tạo ra query tiếp theo
        $LastQuery['Page'] = $TotalPage; // tạo ra query cuối
-  
+       
+       $linkNextQuery  = ROOT_URL.'/'.$BaseLink. $slug.'/page-'.($NextQuery['Page']).$order;
+       $linkLastQuery  = ROOT_URL.'/'.$BaseLink. $slug.'/page-'.($LastQuery['Page']).$order;
 
-
-       $NextButton = '<li class="'.$IsNextButtonHidden.' page-item"><a class="page-number" href="?'.http_build_query($NextQuery).'">></a></li>';
-       $LastButton = '<li class="'.$IsLastButtonHidden.' page-item"><a class="page-number" href="?'.http_build_query($LastQuery).'">>|</a></li>';
+       $NextButton = '<li class="'.$IsNextButtonHidden.'"><a href="'.$linkNextQuery.'">></a></li>';
+       $LastButton = '<li class="'.$IsLastButtonHidden.'"><a href="'.$linkLastQuery.'">>|</a></li>';
+           
 
        $PrevQuery['Page'] = $CurrentPage - 1; //trở về trang trước
        $FirstQuery['Page'] = 1; // trở về trang 1
 
-       $PreviousButton = '<li class="'.$IsFirstButtonHidden.' page-item"><a class="page-number" href="?'.http_build_query($PrevQuery).'"><</a></li>';
-       $FirstButton = '<li class="'.$IsPreviousButtonHidden.' page-item"><a class="page-number" href="?'.http_build_query($FirstQuery).'">|<</a></li>';
+       $linkPrevQuery  = ROOT_URL.'/'.$BaseLink. $slug.'/page-'.($PrevQuery['Page']).$order;
+       $linkFirstQuery  = ROOT_URL.'/'.$BaseLink. $slug.'/page-'.($FirstQuery['Page']).$order;
+
+       $PreviousButton = '<li class="'.$IsFirstButtonHidden.'"><a href="'.$linkPrevQuery.'"><</a></li>';
+       $FirstButton = '<li class="'.$IsPreviousButtonHidden.'"><a href="'.$linkFirstQuery.'">|<</a></li>';
        // trở về trang trước
        // trở về trang đâu
        $PagedHTML .= $FirstButton.$PreviousButton;
@@ -151,9 +168,10 @@ class Model_home extends Model_db{
            if ($CurrentPage > ($LimitPage / 2)) // nếu page hiện tại lớn hon 5/2 
            {
                $CurrentQuery['Page'] = 1; // page hiện tại bằng 1 
+               $linkCurrentQuery  = ROOT_URL.'/'.$BaseLink.$slug.'/page-'.($CurrentQuery['Page']).$order;
 
-               $PagedHTML .= '<li class="page-item"><a class="page-number" href="?'.http_build_query($CurrentQuery).'">1</a></li>'; // trang đầu
-               $PagedHTML .= '<li class="page-item"><a class="page-number">...</a></li>'; // đến ....
+               $PagedHTML .= '<li><a href="'.$linkCurrentQuery.'">1</a></li>'; // trang đầu
+               $PagedHTML .= '<li><a>...</a></li>'; // đến ....
            }
 
            $Loop = $CurrentPage; // lặp = page hiện tại
@@ -163,11 +181,12 @@ class Model_home extends Model_db{
                if ($PageBreak < $LimitPage) // nếu pagebreak ++ nếu pagebreak < 5 (limit page)
                {
                    $CurrentQuery['Page'] = $Loop; // gán lại cho current query
+                   $linkCurrentQuery  = ROOT_URL.'/'.$BaseLink.$slug.'/page-'.($CurrentQuery['Page']).$order;
 
                    if ($CurrentPage === $Loop) // nếu currentpage == loop
                    {
-                       $PagedHTML .= '<li class="current page-item"><a class="page-number" href="?'.http_build_query($CurrentQuery).'">'.$Loop.'</a></li>';
-                   } else $PagedHTML .= '<li class="page-item"><a class="page-number" href="?'.http_build_query($CurrentQuery).'">'.$Loop.'</a></li>';
+                       $PagedHTML .= '<li class="active"><a href="'.$linkCurrentQuery.'">'.$Loop.'</a></li>';
+                   } else $PagedHTML .= '<li><a href="'.$linkCurrentQuery.'">'.$Loop.'</a></li>';
                }
 
                $PageBreak++;
@@ -177,24 +196,24 @@ class Model_home extends Model_db{
            if ($CurrentPage < ($TotalPage - ($LimitPage / 2))) 
            {
                $CurrentQuery['Page'] = $TotalPage;
+               $linkCurrentQuery  = ROOT_URL.'/'.$BaseLink.$slug.'/page-'.($CurrentQuery['Page']).$order;
 
-               $PagedHTML .= '<li class="page-item"><a class="page-number"  href="?'.http_build_query($CurrentQuery).'">...</a></li>';
-               $PagedHTML .= '<li class="page-item"><a class="page-number" href="?'.http_build_query($CurrentQuery).'">'.$TotalPage.'</a></li>';
+               $PagedHTML .= '<li><a href="'.$linkCurrentQuery.'">...</a></li>';
+               $PagedHTML .= '<li><a href="'.$linkCurrentQuery.'">'.$TotalPage.'</a></li>';
            }
        }
 
        return $PagedHTML.$NextButton.$LastButton;
    }
-
    function CountAllNewFormCate($slug)
    {
       $sql = "SELECT id FROM danhmuc WHERE slug=?";
       $idCate = $this->result1(1,$sql,$slug)['id'];
-
+        
        $SQL = "SELECT count(*) AS sodong FROM tintuc WHERE id != 0";
          if ($idCate != NULL)
          {
-            $sql .= " AND iddm =".$idCate; 
+            $SQL .= " AND iddm =".$idCate; 
          }
        return $this->result1(1, $SQL)['sodong'];
    }
@@ -202,7 +221,7 @@ class Model_home extends Model_db{
    function GetAllNewFormCate($slug,$CurrentPage){
       $sql = "SELECT id FROM danhmuc WHERE slug=?";
       $idNew = $this->result1(1,$sql,$slug)['id'];
-
+        // print_r($CurrentPage);
       $sql = "SELECT * FROM tintuc WHERE id != 0";
       if ($idNew != NULL)
       {
@@ -337,6 +356,11 @@ class Model_home extends Model_db{
     function getPostsSameCate($idCate, $id){
         $sql = "SELECT * FROM tintuc WHERE iddm = ? AND id != ? ORDER BY id DESC LIMIT 2 ";
         return $this->result1(0,$sql,$idCate,$id);
+    }
+
+    function GetPageBySlug($slug){
+        $sql = "SELECT * FROM danhmuc WHERE slug=?";
+        return $this->result1(1,$sql,$slug);
     }
 }
 
