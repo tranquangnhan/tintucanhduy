@@ -357,16 +357,13 @@ class Model_home extends Model_db{
         $sql = "SELECT * FROM tintuc WHERE iddm = ? AND id != ? ORDER BY id DESC LIMIT 2 ";
         return $this->result1(0,$sql,$idCate,$id);
     }
-<<<<<<< HEAD
     function getAllNewView(){
         $sql = "SELECT * FROM tintuc ORDER BY views DESC LIMIT 10";
         return $this->result1(0,$sql);
-=======
-
+    }
     function GetPageBySlug($slug){
         $sql = "SELECT * FROM danhmuc WHERE slug=?";
         return $this->result1(1,$sql,$slug);
->>>>>>> 47a03ef1485e4ea286a93baa2ac11937909753e9
     }
 }
 
