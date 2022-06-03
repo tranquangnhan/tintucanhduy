@@ -69,35 +69,35 @@ class Home{
      function detail()
      { 
         $slug = $_GET['slug']; 
-        $sp = $this->model->getOneNew($slug);   
+        $oneNew = $this->model->getOneNew($slug); 
+        $listTag = $this->model->getAllTagByIdNew($oneNew['id']);
+        $sameCate = $this->model->getPostsSameCate($oneNew['iddm'],$oneNew['id'] );
+   
         $viewFile = "views/detail.php";     
         require_once "views/layout.php";  
      }
 
      function cat(){
 
-         $producer = $this->model->getAllProducer();
+         // $producer = $this->model->getAllProducer();
       
          $slug = $_GET['slug'];
          
-         if(isset($_GET['to'])) $to = $_GET['to']; else $to = NULL;
-         if(isset($_GET['from'])) $from = $_GET['from']; else $from = NULL;
-         if(isset($_POST['hot'])) $hot = $_POST['hot']; else $hot = NULL;
+
 
          if (isset($_GET['Page'])) $CurrentPage = $_GET['Page']; else $CurrentPage = 1;
          
-         if(isset($_GET['q'])) $query = $_GET['q']; else $query = NULL;
 
-         $TotalProduct = $this->model->countAllPhone($slug,$from,$to,$hot,$query);
- 
-         if($TotalProduct == 0) $TotalProduct =1;
+         $TotalNew = $this->model->CountAllNewFormCate($slug);
+         
+         if($TotalNew == 0) $TotalNew =1;
    
-         $ProductList = $this->model-> GetProductList($slug,$CurrentPage,$from,$to,$hot,$query);
- 
- 
-         $Pagination =  $this->model->Page($TotalProduct, $CurrentPage);
+         $NewList = $this->model-> GetAllNewFormCate($slug,$CurrentPage);
+         
+      
+         $Pagination =  $this->model->Page($TotalNew, $CurrentPage);
 
-         $viewFile ="views/shop.php";
+         $viewFile ="views/cate.php";
          require_once "views/layout.php";
      }
 

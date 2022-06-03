@@ -186,62 +186,32 @@ class Model_home extends Model_db{
        return $PagedHTML.$NextButton.$LastButton;
    }
 
-   function countAllPhone($slug,$from,$to,$hot,$query)
+   function CountAllNewFormCate($slug)
    {
-      $sql = "SELECT idNSX FROM nhasanxuat WHERE slug=?";
-      $idDT = $this->result1(1,$sql,$slug)['idNSX'];
+      $sql = "SELECT id FROM danhmuc WHERE slug=?";
+      $idCate = $this->result1(1,$sql,$slug)['id'];
 
-       $sql = "SELECT count(*) AS sodong FROM dienthoai WHERE idDT != 0";
-         if ($idDT != NULL)
+       $SQL = "SELECT count(*) AS sodong FROM tintuc WHERE id != 0";
+         if ($idCate != NULL)
          {
-            $sql .= " AND idNSX =".$idDT; 
+            $sql .= " AND iddm =".$idCate; 
          }
-         if ($from != NULL)
-         {
-            $sql .= " AND Gia >= ".$from; 
-         }
-         if ($to != NULL)
-         {
-            $sql .= " AND Gia <= ".$to; 
-         }
-         if ($hot != NULL)
-         {
-             $sql .= " AND Hot = ".$hot; 
-         }
-         if($query != NULL)
-         {
-            $sql .= ' AND TenDT LIKE "%'.$query.'%"';
-         }
-       return $this->result1(1,$sql)['sodong'];
+       return $this->result1(1, $SQL)['sodong'];
    }
-   function GetProductList($slug,$CurrentPage,$from,$to,$hot,$query){
-      $sql = "SELECT idNSX FROM nhasanxuat WHERE slug=?";
-      $idDT = $this->result1(1,$sql,$slug)['idNSX'];
 
-      $sql = "SELECT * FROM dienthoai WHERE idDT != 0";
-      if ($idDT != NULL)
+   function GetAllNewFormCate($slug,$CurrentPage){
+      $sql = "SELECT id FROM danhmuc WHERE slug=?";
+      $idNew = $this->result1(1,$sql,$slug)['id'];
+
+      $sql = "SELECT * FROM tintuc WHERE id != 0";
+      if ($idNew != NULL)
       {
-        $sql .= " AND idNSX = ".$idDT; 
+        $sql .= " AND iddm = ".$idNew; 
       }
-      if ($from != NULL)
-      {
-          $sql .= " AND Gia >= ".$from; 
-      }
-      if ($to != NULL)
-      {
-          $sql .= " AND Gia <= ".$to; 
-      }
-      if ($hot != NULL)
-      {
-          $sql .= " AND Hot = ".$hot; 
-      }
-      if($query != NULL)
-      {
-          $sql .= ' AND TenDT LIKE "%'.$query.'%" ';
-      }
+      
       if ($CurrentPage !== 0)
       {
-          $sql .= " GROUP BY idDT LIMIT ".($CurrentPage - 1) * PAGE_SIZE.", ".PAGE_SIZE;
+          $sql .= " GROUP BY id LIMIT ".($CurrentPage - 1) * PAGE_SIZE.", ".PAGE_SIZE;
       }
       
       return $this->result1(0,$sql);
@@ -359,5 +329,14 @@ class Model_home extends Model_db{
         return $this->result1(0,$sql,$iddm);
     }
     
+    function getAllTagByIdNew($id){
+        $sql = "SELECT * FROM tag INNER JOIN fktagtintuc ON fktagtintuc.idtag = tag.id WHERE fktagtintuc.idtintuc = ?";
+        return $this->result1(0,$sql,$id);
+    }
+
+    function getPostsSameCate($idCate, $id){
+        $sql = "SELECT * FROM tintuc WHERE iddm = ? AND id != ? ORDER BY id DESC LIMIT 2 ";
+        return $this->result1(0,$sql,$idCate,$id);
+    }
 }
 

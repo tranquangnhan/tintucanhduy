@@ -1,4 +1,5 @@
-      <!-- Main Content Section Start -->
+    
+        <!-- Main Content Section Start -->
         <div class="main-content--section pbottom--30">
             <div class="container">
                 <!-- Main Content Start -->
@@ -7,24 +8,27 @@
                     <div class="post--items post--items-1 pd--30-0">
                         <div class="row gutter--15">
                             <div class="col-md-6">
-                            
+                                <?php
+                                     $linkDetail = 'bai-viet/'.$getTitleNew[0]['slug'];
+                                ?>
                                 <!-- Post Item Start -->
-                                <div class="post--item post--layout-1 post--title-larger">
+                                <div class="post--item post--layout-1 post--title-larger popular-img">
                                     <div class="post--img">
-                                        <a href="news-single-v1.html" class="thumb"><img src="uploads/<?=$getTitleNew[0]['img']?>" alt=""></a>
+                                        <a href="<?= $linkDetail?>" class="thumb"><img src="uploads/<?=$getTitleNew[0]['img']?>" alt=""></a>
                                         <a href="#" class="cat">Politics</a>
                                       
 
                                         <div class="post--info">
                                             <ul class="nav meta">
-                                                <li><a href="#"><?php 
-                                                        $date=date_create($getTitleNew[0]['date']);
-                                                        echo date_format($date,"d/m/Y");
-                                                        ?></a></li>
+                                                <li><a href="#">
+                                                <?php 
+                                                $date=date_create($getTitleNew[0]['date']);
+                                                echo date_format($date,"d/m/Y");
+                                                ?></a></li>
                                             </ul>
 
                                             <div class="title">
-                                                <h2 class="h4"><a href="news-single-v1.html" class="btn-link"><?=$getTitleNew[0]['title']?></a></h2>
+                                                <h2 class="h4"><a href="<?= $linkDetail?>" class="btn-link"><?=$getTitleNew[0]['title']?></a></h2>
                                             </div>
                                         </div>
                                     </div>
@@ -36,9 +40,12 @@
                                 <div class="row gutter--15">
                                     <div class="col-xs-6 col-xss-12">
                                         <!-- Post Item Start -->
-                                        <div class="post--item post--layout-1 post--title-large">
+                                        <?php
+                                            $linkDetail = 'bai-viet/'.$getTitleNew[1]['slug'];
+                                        ?>
+                                        <div class="post--item post--layout-1 post--title-large post-right">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="uploads/<?=$getTitleNew[1]['img']?>" alt=""></a>
+                                                <a href="<?= $linkDetail?>" class="thumb"><img src="uploads/<?=$getTitleNew[1]['img']?>" alt=""></a>
                                                 <a href="#" class="cat">Travel</a>
                                                 <div class="post--info">
                                                     <ul class="nav meta">
@@ -49,7 +56,7 @@
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h2 class="h4"><a href="news-single-v1.html" class="btn-link"><?=$getTitleNew[1]['title']?></a></h2>
+                                                        <h2 class="h4"><a href="<?= $linkDetail?>" class="btn-link"><?=$getTitleNew[1]['title']?></a></h2>
                                                     </div>
                                                 </div>
                                             </div>
@@ -59,9 +66,12 @@
 
                                     <div class="col-xs-6 hidden-xss">
                                         <!-- Post Item Start -->
-                                        <div class="post--item post--layout-1 post--title-large">
+                                        <?php
+                                            $linkDetail = 'bai-viet/'.$getTitleNew[2]['slug'];
+                                        ?>
+                                        <div class="post--item post--layout-1 post--title-large post-right">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="uploads/<?=$getTitleNew[2]['img']?>" alt=""></a>
+                                                <a href="<?= $linkDetail?>" class="thumb"><img src="uploads/<?=$getTitleNew[2]['img']?>" alt=""></a>
                                                 <a href="#" class="cat">Education</a>                                
                                                 <div class="post--info">
                                                     <ul class="nav meta">
@@ -72,7 +82,7 @@
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h2 class="h4"><a href="news-single-v1.html" class="btn-link"><?=$getTitleNew[2]['title']?></a></h2>
+                                                        <h2 class="h4"><a href="<?= $linkDetail?>" class="btn-link"><?=$getTitleNew[2]['title']?></a></h2>
                                                     </div>
                                                 </div>
                                             </div>
@@ -82,9 +92,12 @@
 
                                     <div class="col-sm-12 hidden-sm hidden-xs">
                                         <!-- Post Item Start -->
-                                        <div class="post--item post--layout-1 post--title-larger">
+                                        <?php
+                                            $linkDetail = 'bai-viet/'.$getTitleNew[3]['slug'];
+                                        ?>
+                                        <div class="post--item post--layout-1 post--title-larger post-bottom">
                                             <div class="post--img">
-                                                <a href="news-single-v1.html" class="thumb"><img src="uploads/<?=$getTitleNew[3]['img']?>" alt=""></a>
+                                                <a href="<?= $linkDetail?>" class="thumb"><img src="uploads/<?=$getTitleNew[3]['img']?>" alt=""></a>
                                                 <a href="#" class="cat">Politics</a>
                                                 <div class="post--info">
                                                     <ul class="nav meta">
@@ -96,7 +109,7 @@
                                                     </ul>
 
                                                     <div class="title">
-                                                        <h2 class="h4"><a href="news-single-v1.html" class="btn-link"><?=$getTitleNew[3]['title']?></a></h2>
+                                                        <h2 class="h4"><a href="<?= $linkDetail?>" class="btn-link"><?=$getTitleNew[3]['title']?></a></h2>
                                                     </div>
                                                 </div>
                                             </div>
@@ -141,13 +154,14 @@
                                         <ul class="nav row gutter--15" data-ajax-content="inner">
                                             <?php
                                             foreach ($getNewbyCateLimit0 as $key => $value) {
+                                            $linkDetail = 'bai-viet/'.$value['slug'];
                                               if($key==0){
                                                   echo '
                                                         <li class="col-xs-12">
                                                             <!-- Post Item Start -->
-                                                            <div class="post--item post--layout-1">
+                                                            <div class="post--item post--layout-1 post-large">
                                                                 <div class="post--img">
-                                                                    <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/world-news-01.jpg" alt=""></a>
+                                                                    <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
                                                                     <a href="#" class="cat">War</a>
                                                                     <div class="post--info">
                                                                         <ul class="nav meta">
@@ -155,7 +169,7 @@
                                                                         </ul>
 
                                                                         <div class="title">
-                                                                            <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$value['title'].'</a></h3>
+                                                                            <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
                                                                         </div>
                                                                     </div>
                                                                 </div>
@@ -173,9 +187,9 @@
                                                   echo '
                                                   <li class="col-xs-6">
                                                   <!-- Post Item Start -->
-                                                  <div class="post--item post--layout-2">
+                                                  <div class="post--item post--layout-2 post-small">
                                                       <div class="post--img">
-                                                          <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/world-news-02.jpg" alt=""></a>
+                                                          <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
   
                                                           <div class="post--info">
                                                               <ul class="nav meta">
@@ -183,7 +197,7 @@
                                                               </ul>
   
                                                               <div class="title">
-                                                                  <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$value['title'].'</a></h3>
+                                                                  <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
                                                               </div>
                                                           </div>
                                                       </div>
@@ -245,13 +259,14 @@
                                         <ul class="nav" data-ajax-content="inner">
                                         <?php
                                             foreach ($getNewbyCateLimit1 as $key => $value) {
-                                              if($key==0){
+                                                $linkDetail = 'bai-viet/'.$value['slug'];
+                                                if($key==0){
                                                   echo '
                                                   <li>
                                                   <!-- Post Item Start -->
-                                                  <div class="post--item post--layout-1">
+                                                  <div class="post--item post--layout-1 post-large">
                                                       <div class="post--img">
-                                                          <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/technology-01.jpg" alt=""></a>
+                                                          <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
                                                           <a href="#" class="cat">Computer</a>  
                                                           <div class="post--info">
                                                               <ul class="nav meta">
@@ -259,7 +274,7 @@
                                                               </ul>
   
                                                               <div class="title">
-                                                                  <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$value['title'].'</a></h3>
+                                                                  <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
                                                               </div>
                                                           </div>
                                                       </div>
@@ -272,9 +287,9 @@
                                                   echo '
                                                   <li>
                                                 <!-- Post Item Start -->
-                                                <div class="post--item post--layout-3">
+                                                <div class="post--item post--layout-3 post-small">
                                                     <div class="post--img">
-                                                        <a href="news-single-v1.html" class="thumb"><img src="site/views/assets/img/home-img/technology-02.jpg" alt=""></a>
+                                                        <a href="'.$linkDetail.'" class="thumb"><img src="uploads/'.$value['img'].'" alt=""></a>
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
@@ -283,7 +298,7 @@
                                                             </ul>
 
                                                             <div class="title">
-                                                                <h3 class="h4"><a href="news-single-v1.html" class="btn-link">'.$value['title'].'</a></h3>
+                                                                <h3 class="h4"><a href="'.$linkDetail.'" class="btn-link">'.$value['title'].'</a></h3>
                                                             </div>
                                                         </div>
                                                     </div>

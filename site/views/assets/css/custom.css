@@ -12,3 +12,33 @@ Author URI  : https://themeforest.net/user/themelooks
     height: 100%;
     object-fit: cover;
 }
+.popular-img{
+    height: 605px ;
+}
+ img{
+    height: 100% ;
+}
+ .post--img, .thumb{
+    height: 100%;
+}
+.thumb img{
+    object-fit: cover;
+}
+.post-right{
+    height: 275px ; 
+}
+.post-bottom{
+    height: calc(605px - 275px - 15px); 
+}
+.post-large{
+    height: 200px ; 
+}
+.post-small img{
+    height: 100px ; 
+}
+.mt-2{
+    margin-top: 2rem;
+}
+.post-cate img{
+    height: 200px ; 
+}
