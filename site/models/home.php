@@ -221,7 +221,7 @@ class Model_home extends Model_db{
    function GetAllNewFormCate($slug,$CurrentPage){
       $sql = "SELECT id FROM danhmuc WHERE slug=?";
       $idNew = $this->result1(1,$sql,$slug)['id'];
-      $sql = "SELECT *,danhmuc.slug as slugdm FROM tintuc ";
+      $sql = "SELECT *,danhmuc.slug as slugdm ,tintuc.slug as slugnew  FROM tintuc ";
       $sql .= " INNER JOIN danhmuc ON danhmuc.id = tintuc.iddm"; 
       if ($idNew != NULL)
       {

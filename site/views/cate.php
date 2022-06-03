@@ -31,7 +31,7 @@
                                 <ul class="nav row AdjustRow">
                                     <?php 
                                         foreach ($NewList as  $value) {
-                                            $linkDetail = 'bai-viet/'.$value['slug'];
+                                            $linkDetail = 'bai-viet/'.$value['slugnew'];
                                             $linkDm = 'danh-muc/'.$value['slugdm'];
                                            echo '<li class="col-md-6 col-sm-12 col-xs-6 col-xss-12 mt-2">
                                            <!-- Post Item Start -->
