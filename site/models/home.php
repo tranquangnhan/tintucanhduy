@@ -218,6 +218,21 @@ class Model_home extends Model_db{
        return $this->result1(1, $SQL)['sodong'];
    }
 
+   function CountAllNewFormTag($slug)
+   {
+      $sql = "SELECT id FROM tag WHERE slug=?";
+      $idTag = $this->result1(1,$sql,$slug)['id'];
+        
+       $SQL = "SELECT count(*) AS sodong FROM fktagtintuc WHERE id != 0";
+         if ($idTag != NULL)
+         {
+            $SQL .= " AND idtag =".$idTag; 
+         }
+       return $this->result1(1, $SQL)['sodong'];
+   }
+
+ 
+
    function GetAllNewFormCate($slug,$CurrentPage){
       $sql = "SELECT id FROM danhmuc WHERE slug=?";
       $idNew = $this->result1(1,$sql,$slug)['id'];
@@ -235,6 +250,26 @@ class Model_home extends Model_db{
       
       return $this->result1(0,$sql);
   }
+
+    function GetAllNewFormTag($slug,$CurrentPage){
+        $sql = "SELECT id FROM tag WHERE slug=?";
+        $idTag = $this->result1(1,$sql,$slug)['id'];
+
+        $sql = "SELECT *,danhmuc.slug as slugdm ,tintuc.slug as slugnew  FROM tintuc ";
+        $sql .= " INNER JOIN danhmuc ON danhmuc.id = tintuc.iddm"; 
+        $sql .= " INNER JOIN fktagtintuc ON tintuc.id = fktagtintuc.idtintuc"; 
+        if ($idTag  != NULL)
+        {
+        $sql .= " WHERE tintuc.id != 0 AND fktagtintuc.idtag = ".$idTag ; 
+        }
+    
+        if ($CurrentPage !== 0)
+        {
+            $sql .= " GROUP BY tintuc.id LIMIT ".($CurrentPage - 1) * PAGE_SIZE.", ".PAGE_SIZE;
+        }
+        
+        return $this->result1(0,$sql);
+    }
 
   function addNewView($idsp){
       $sql = "UPDATE dienthoai SET SoLanXem=SoLanXem+1 WHERE idDT = ?";

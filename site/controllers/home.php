@@ -30,6 +30,7 @@ class Home{
          case "savebill": $this->saveBill(); break;
          case "thankyou": $this->thankYou(); break;
          case "cat": $this->cat(); break;
+         case "tag": $this->tag(); break;
          case "vnpay": $this->vnpay(); break;
          case "ttthanhcong": $this->ttthanhcong(); break;
          case "loginregister": $this->loginRegister();break;
@@ -103,6 +104,33 @@ class Home{
          $viewFile ="views/cate.php";
          require_once "views/layout.php";
      }
+
+     function tag(){
+
+     
+      $slug = $_GET['slug'];
+      
+     
+
+      if (isset($_GET['Page'])) $CurrentPage = $_GET['Page']; else $CurrentPage = 1;
+      
+
+     
+      $TotalNew = $this->model->CountAllNewFormTag($slug);
+     
+      if($TotalNew == 0) $TotalNew =1;
+      
+     
+
+      $NewList = $this->model-> GetAllNewFormTag($slug,$CurrentPage);
+     
+      $PageSize = PAGE_SIZE; 
+      $BaseLink = 'tag';
+      $Pagination =  $this->model->Page($TotalNew, $CurrentPage,$PageSize,$BaseLink);
+
+      $viewFile ="views/cate.php";
+      require_once "views/layout.php";
+  }
 
      function cartView(){
          $producer = $this->model->getAllProducer();

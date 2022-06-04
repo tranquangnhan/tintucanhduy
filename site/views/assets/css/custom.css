@@ -129,3 +129,6 @@ Author URI  : https://themeforest.net/user/themelooks
     text-overflow: ellipsis;
     white-space: normal;
 }
+.ml-2{
+    margin-left: 2rem;
+}

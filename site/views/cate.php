@@ -6,7 +6,7 @@
         <div class="main--breadcrumb">
             <div class="container">
                 <ul class="breadcrumb">
-                    <li><a href="" class="btn-link"><i class="fa fm fa-home"></i>Home</a></li>
+                    <li><a href="" class="btn-link"><i class="fa fm fa-home"></i>Trang Chủ</a></li>
                     <li class="active"><span><?=$OnePage['tendm']?></span></li>
                 </ul>
             </div>
@@ -30,6 +30,7 @@
                             <div class="post--items post--items-2 pd--30-0">
                                 <ul class="nav row AdjustRow">
                                     <?php 
+                                        if(count($NewList) == '0') echo "<p class='ml-2'>Không có bài viết nào!</p>";
                                         foreach ($NewList as  $value) {
                                             $linkDetail = 'bai-viet/'.$value['slugnew'];
                                             $linkDm = 'danh-muc/'.$value['slugdm'];
@@ -82,7 +83,7 @@
 
                                 <ul class="pagination float--right">
                                 
-                                    <?=$Pagination?>
+                                    <?php  if(count($NewList) != '0') echo $Pagination?>
 
                                 </ul>
                             </div>

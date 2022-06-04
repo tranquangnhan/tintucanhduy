@@ -68,7 +68,8 @@
                                     <li><span><i class="fa fa-tags"></i></span></li>
                                     <?php 
                                         foreach ($listTag as $item) {
-                                           echo ' <li><a href="#">'.$item['name'].'</a></li>';
+                                            $linkTag = 'tag/'.$item['slug'];
+                                           echo ' <li><a href="'. $linkTag.'">'.$item['name'].'</a></li>';
                                         }
                                     ?>
                                 </ul>
