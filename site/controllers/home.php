@@ -106,7 +106,8 @@ class Home{
      }
 
      function search(){
-      $query =$_GET['search'];
+      $query = $_GET['search'];
+     
 
       $ListSearch = $this->model-> ListSearch($query);
      

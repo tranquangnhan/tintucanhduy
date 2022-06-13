@@ -120,7 +120,7 @@
                     </div>
 
                     <!-- Header Search Form Start -->
-                    <form action="" class="header--search-form float--right" data-form="validate">
+                    <form action="?act=search" method="GET" class="header--search-form float--right" data-form="validate">
                         <input type="search" name="search" placeholder="Tìm..." class="header--search-control form-control" required>
                         <input type="hidden" name="act" value="search">
 
