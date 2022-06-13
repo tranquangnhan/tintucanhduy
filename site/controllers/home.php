@@ -32,7 +32,7 @@ class Home{
          case "cat": $this->cat(); break;
          case "tag": $this->tag(); break;
          case "vnpay": $this->vnpay(); break;
-         case "ttthanhcong": $this->ttthanhcong(); break;
+         case "search": $this->search(); break;
          case "loginregister": $this->loginRegister();break;
          case "active":$this->active();break;
          case "logout":$this->logout();break; 
@@ -56,7 +56,7 @@ class Home{
       $getNewbyCateLimit5 = $this->model->getNewbyCateLimit($this->getCate[5]['id'], 5);
       $getNewbyCateLimit6 = $this->model->getNewbyCateLimit($this->getCate[6]['id'], 5);
       $getNewbyCateLimit7 = $this->model->getNewbyCateLimit($this->getCate[7]['id'], 3);
-     
+      $getRandomNew = $this->model->getRandomNew();
       //   $producer = $this->model->getAllProducer();
       //   $getHotPro =  $this->model->getHotPro();
       //   $getAllPro = $this->model->getAllPro();
@@ -75,7 +75,7 @@ class Home{
         $oneNew = $this->model->getOneNew($slug); 
         $listTag = $this->model->getAllTagByIdNew($oneNew['id']);
         $sameCate = $this->model->getPostsSameCate($oneNew['iddm'],$oneNew['id'] );
-   
+        $getCateById  =  $this->model->getCateById($oneNew['iddm']);
         $viewFile = "views/detail.php";     
         require_once "views/layout.php";  
      }
@@ -103,6 +103,15 @@ class Home{
 
          $viewFile ="views/cate.php";
          require_once "views/layout.php";
+     }
+
+     function search(){
+      $query =$_GET['search'];
+
+      $ListSearch = $this->model-> ListSearch($query);
+     
+      $viewFile ="views/search.php";
+      require_once "views/layout.php";
      }
 
      function tag(){

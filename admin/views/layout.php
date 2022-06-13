@@ -39,60 +39,9 @@
             <div class="navbar-custom">
                 <ul class="list-unstyled topnav-menu float-right mb-0">
 
-                    <li class="d-none d-sm-block">
-                        <form class="app-search">
-                            <div class="app-search-box">
-                                <div class="input-group">
-                                    <input type="text" class="form-control" placeholder="Tìm Kiếm...">
-                                    <div class="input-group-append">
-                                        <button class="btn" type="submit">
-                                            <i class="fe-search"></i>
-                                        </button>
-                                    </div>
-                                </div>
-                            </div>
-                        </form>
-                    </li>
+                  
         
-                    <li class="dropdown notification-list">
-                        <a class="nav-link dropdown-toggle  waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
-                            <i class="fe-bell noti-icon"></i>
-                            <span class="badge badge-danger rounded-circle noti-icon-badge">9</span>
-                        </a>
-                        <div class="dropdown-menu dropdown-menu-right dropdown-lg">
-
-                            <!-- item-->
-                            <div class="dropdown-item noti-title">
-                                <h5 class="m-0">
-                                    <span class="float-right">
-                                        <a href="" class="text-dark">
-                                            <small>Xoá Tất Cả</small>
-                                        </a>
-                                    </span>Thông Báo
-                                </h5>
-                            </div>
-
-                            <div class="slimscroll noti-scroll">
-                                <!-- item-->
-                                <a href="javascript:void(0);" class="dropdown-item notify-item">
-                                    <div class="notify-icon bg-secondary">
-                                        <i class="mdi mdi-heart"></i>
-                                    </div>
-                                    <p class="notify-details">Chào mừng bạn đến với admin
-                                        <b><?=($_SESSION['suser'])? $_SESSION['suser'] : 'khongco';?></b>
-                                        <small class="text-muted">13 phút trước</small>
-                                    </p>
-                                </a>
-                            </div>
-
-                            <!-- All-->
-                            <a href="javascript:void(0);" class="dropdown-item text-center text-primary notify-item notify-all">
-                                Xem tất cả
-                                <i class="fi-arrow-right"></i>
-                            </a>
-
-                        </div>
-                    </li>
+                    
 
                     <li class="dropdown notification-list">
                         <a class="nav-link dropdown-toggle nav-user mr-0 waves-effect" data-toggle="dropdown" href="#" role="button" aria-haspopup="false" aria-expanded="false">
@@ -132,12 +81,7 @@
                         </div>
                     </li>
 
-                    <li class="dropdown notification-list">
-                        <a href="javascript:void(0);" class="nav-link right-bar-toggle waves-effect">
-                            <i class="fe-settings noti-icon"></i>
-                        </a>
-                    </li>
-
+               
 
                 </ul>
 
@@ -373,9 +317,7 @@
     <!-- Right bar overlay-->
     <div class="rightbar-overlay"></div>
 
-    <a href="javascript:void(0);" class="right-bar-toggle demos-show-btn">
-        <i class="mdi mdi-cog-outline mdi-spin"></i> &nbsp;Chọn Themes
-    </a>
+  
 
     <!-- Vendor js -->
     <script src="views/assets/js/vendor.min.js"></script>

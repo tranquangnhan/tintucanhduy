@@ -71,6 +71,12 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 			var dialogName = ev.data.name;
 			var dialogDefinition = ev.data.definition;
 
+					if ( dialogName == 'link' || dialogName == 'image' )
+			{
+				// remove Upload tab
+				dialogDefinition.removeContents( 'Upload' );
+			}
+
 			// Check if the definition is from the dialog we're
 			// interested on (the "Link" dialog).
 			if ( dialogName == 'myDialog' && ev.editor.name == 'editor2' ) {
@@ -123,7 +129,9 @@ For licensing, see LICENSE.md or https://ckeditor.com/legal/ckeditor-oss-license
 					var urlField = this.getContentElement( 'tab1', 'customField' );
 					urlField.select();
 				};
+				
 			}
+			
 		});
 
 		var config = {

@@ -2,8 +2,8 @@
         <div class="main--breadcrumb">
             <div class="container">
                 <ul class="breadcrumb">
-                    <li><a href="home-1.html" class="btn-link"><i class="fa fm fa-home"></i>Home</a></li>
-                    <li><a href="travel.html" class="btn-link">Travel</a></li>
+                    <li><a href="" class="btn-link"><i class="fa fm fa-home"></i>Trang Chủ</a></li>
+                    <li><a href="danh-muc/<?=$getCateById['tendm']?>" class="btn-link"><?=$getCateById['tendm']?></a></li>
                     <li class="active"><span><?=$oneNew['title']?></span></li>
                 </ul>
             </div>
@@ -111,10 +111,10 @@
                                                 $linkDetail = 'bai-viet/'.$row['slug'];
                                                 echo ' <li class="col-sm-6 pbottom--30">
                                                             <!-- Post Item Start -->
-                                                            <div class="post--item post--layout-1 post-large">
+                                                            <div class="post--item post--layout-1 post-large-0">
                                                                 <div class="post--img">
                                                                     <a href="'. $linkDetail.'" class="thumb"><img src="uploads/'.$row['img'].'" alt=""></a>
-                                                                    <a href="#" class="cat">Fitness</a>
+                                                                    <a href="danh-muc/'.$row['slugdm'].'" class="cat">'.$row['tendm'].'</a>
                                                                     <a href="#" class="icon"><i class="fa fa-flash"></i></a>
                 
                                                                     <div class="post--info">

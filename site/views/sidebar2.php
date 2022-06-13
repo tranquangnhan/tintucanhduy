@@ -25,6 +25,7 @@
                                             foreach($this->getAllNewView as $value)
                                             {
                                                 $linkDetail = 'bai-viet/'.$value['slug'];
+                                                $date=date_create($value['date']);
                                             echo '
                                    
 
@@ -36,7 +37,7 @@
 
                                                         <div class="post--info">
                                                             <ul class="nav meta">
-                                                                <li><a href="#">16 April 2017</a></li>
+                                                                <li><a href="#">'.date_format($date,"d/m/Y").'</a></li>
                                                             </ul>
 
                                                             <div class="title ">

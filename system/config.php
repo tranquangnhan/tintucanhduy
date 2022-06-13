@@ -10,5 +10,7 @@ define('SYSTEM_PATH',ROOT_URL.'/system');
 define('PATH_IMG_ADMIN','../uploads/');
 define('PAGE_SIZE',10);
 define('PATH_IMG_SITE','../uploads/');
+define('LINK_UPLOADS','localhost'.ROOT_URL.'/uploads');
+
 session_start();
 ?>

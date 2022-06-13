@@ -61,7 +61,7 @@
                                                       <select class="form-control" name="iddm" id="">
                                                         <?php 
                                                             foreach ($listDanhMuc as $item) {
-                                                                if($item === $oneRecode['iddm']){
+                                                                if($item['id'] == $oneRecode['iddm']){
                                                                     echo " <option value=".$item['id']." selected>".$item['tendm']."</option>";
                                                                 }else{
                                                                     echo " <option value=".$item['id']." >".$item['tendm']."</option>";

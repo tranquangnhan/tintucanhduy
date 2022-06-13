@@ -7,6 +7,9 @@ Author      : themelooks.com
 Author URI  : https://themeforest.net/user/themelooks
 
 */
+img{
+    max-width: 100% !important;
+}
 .fullimage{
     width: 100%;
     height: 100%;

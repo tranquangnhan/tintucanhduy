@@ -120,8 +120,9 @@
                     </div>
 
                     <!-- Header Search Form Start -->
-                    <form action="#" class="header--search-form float--right" data-form="validate">
-                        <input type="search" name="search" placeholder="Search..." class="header--search-control form-control" required>
+                    <form action="" class="header--search-form float--right" data-form="validate">
+                        <input type="search" name="search" placeholder="Tìm..." class="header--search-control form-control" required>
+                        <input type="hidden" name="act" value="search">
 
                         <button type="submit" class="header--search-btn btn"><i class="header--search-icon fa fa-search"></i></button>
                     </form>
@@ -132,7 +133,7 @@
         </header>
         <!-- Header Section End -->
          <!-- Posts Filter Bar Start -->
-         <div class="posts--filter-bar style--1 hidden-xs">
+         <!-- <div class="posts--filter-bar style--1 hidden-xs">
             <div class="container">
                 <ul class="nav">
                     <li>
@@ -167,7 +168,7 @@
                     </li>
                 </ul>
             </div>
-        </div>
+        </div> -->
         <!-- Posts Filter Bar End -->
 
         <!-- News Ticker Start -->

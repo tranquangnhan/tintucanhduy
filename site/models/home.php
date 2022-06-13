@@ -251,6 +251,11 @@ class Model_home extends Model_db{
       return $this->result1(0,$sql);
   }
 
+    function ListSearch($query){
+        $sql = "SELECT *,danhmuc.slug as slugdm, tintuc.slug as slugnew FROM danhmuc INNER JOIN tintuc ON tintuc.iddm = danhmuc.id WHERE tintuc.title LIKE '%{$query}%' ORDER BY tintuc.id DESC";
+        return $this->result1(0,$sql);
+    }
+
     function GetAllNewFormTag($slug,$CurrentPage){
         $sql = "SELECT id FROM tag WHERE slug=?";
         $idTag = $this->result1(1,$sql,$slug)['id'];
@@ -379,7 +384,7 @@ class Model_home extends Model_db{
     }
 
     function getNewbyCateLimit($iddm, $limit){
-        $sql = "SELECT * FROM tintuc WHERE iddm=? LIMIT $limit";
+        $sql = "SELECT * FROM tintuc WHERE iddm=? ORDER BY id DESC LIMIT $limit ";
         return $this->result1(0,$sql,$iddm);
     }
     
@@ -389,7 +394,7 @@ class Model_home extends Model_db{
     }
 
     function getPostsSameCate($idCate, $id){
-        $sql = "SELECT * FROM tintuc WHERE iddm = ? AND id != ? ORDER BY id DESC LIMIT 2 ";
+        $sql = "SELECT *,danhmuc.slug as slugdm ,tintuc.slug as slugnew FROM tintuc  INNER JOIN danhmuc ON tintuc.iddm = danhmuc.id WHERE iddm = ? AND tintuc.id != ? ORDER BY tintuc.id DESC LIMIT 2 ";
         return $this->result1(0,$sql,$idCate,$id);
     }
     function getAllNewView(){
@@ -401,7 +406,16 @@ class Model_home extends Model_db{
         return $this->result1(1,$sql,$slug);
     }
 
+    function getCateById($id){
+        $sql = "SELECT * FROM danhmuc WHERE id=?";
+        return $this->result1(1,$sql,$id);
+    }
+
     function getCatebyTinTuc(){
+        $sql = "SELECT *,danhmuc.slug as slugdm FROM danhmuc INNER JOIN tintuc ON tintuc.iddm = danhmuc.id ORDER BY tintuc.id DESC LIMIT 4";
+        return $this->result1(0,$sql);
+    }
+    function getRandomNew(){
         $sql = "SELECT *,danhmuc.slug as slugdm FROM danhmuc INNER JOIN tintuc ON tintuc.iddm = danhmuc.id ORDER BY tintuc.id DESC LIMIT 4";
         return $this->result1(0,$sql);
     }
